@@ -13,3 +13,16 @@ eureka:
 spring:
   application:
     name: blog-eureka
+
+# slf4j日志配置
+logging:
+  # 配置级别
+  level:
+    #分包配置级别，即不同的目录下可以使用不同的级别，日志级别总共有
+    #TARCE < DEBUG < INFO < WARN < ERROR < FATAL ，且级别是逐渐提供，如果日志级别设置为INFO，则意味级别低的TRACE和DEBUG级别的日志都看不到。
+    root: info
+  # 指定输出日志的文件名，默认输出至当前项目目录下
+  file: /Users/royhsu/workspace/logs/blog-logs/blog-eureka.log
+  pattern:
+    console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    file: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
