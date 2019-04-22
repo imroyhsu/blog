@@ -24,7 +24,7 @@
         <module>../blog-zuul</module>
         <module>../blog-eureka</module>
         <module>../blog-admin</module>
-        <module></module>
+        <module>../common</module>
     </modules>
 
 
@@ -105,7 +105,7 @@
             <!-- shiro -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
+                <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <dependency>
