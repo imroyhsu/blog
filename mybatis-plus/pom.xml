@@ -8,10 +8,10 @@
         <version>2.1.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lyc</groupId>
-    <artifactId>test-mybatis-plus</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>test-mybatis-plus</name>
+    <groupId>cn.royhsu</groupId>
+    <artifactId>mybatis-plus</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>mybatis-plus</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -51,11 +51,7 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.1.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.1</version>
-        </dependency>
+
 
 
         <dependency>

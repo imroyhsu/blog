@@ -1,4 +1,4 @@
-package com.lyc.testmybatisplus.generator;
+package cn.royhsu.mybatisplus.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -8,20 +8,21 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
-import java.io.File;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Ethan Liu
  * @since 2019/4/23 21:08
  */
 public class MysqlGenerator {
-    private static final String packageName="user";                //文件名
+    private static final String packagePrefix = "cn.royhsu.";      //包前缀
+    private static final String packageName="user";                //包名
     private static final String authorName="Ethan Liu";            //作者
     private static final String table="blog_user";                 //table名
     private static final String prefix="blog_";                    //table前缀
-    private static final File file = new File(packageName);        //新建文件夹
-    private static final String path = file.getAbsolutePath();     //当前路径
+    private static final String path = "E:/blog/mybatis-plus";      //当前路径
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testjdbc?useUnicode=true&characterEncoding=utf8";
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "692806";
@@ -36,7 +37,7 @@ public class MysqlGenerator {
         AutoGenerator mpg = new AutoGenerator().setGlobalConfig(
                 // 全局配置
                 new GlobalConfig()
-                        .setOutputDir(System.getProperty("user.dir")+"/src/main/java")//输出目录
+                        .setOutputDir(path+"/src/main/java")//输出目录
                         .setFileOverride(true)// 是否覆盖文件
                         .setActiveRecord(true)// 开启 activeRecord 模式
                         .setEnableCache(false)// XML 二级缓存
@@ -96,7 +97,7 @@ public class MysqlGenerator {
                 // 包配置
                 new PackageConfig()
                         //.setModuleName("User")
-                        .setParent("cn.royhsu"+packageName)// 自定义包路径
+                        .setParent(packagePrefix + packageName)// 自定义包路径
         ).setCfg(
                 // 注入自定义配置，可以在 ftl 中使用 cfg.abc 设置的值
                 new InjectionConfig() {

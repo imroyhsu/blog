@@ -1,6 +1,6 @@
-package cn.royhsuuser.service;
+package cn.royhsu.common.service;
 
-import cn.royhsuuser.entity.User;
+import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-23
+ * @since 2019-04-24
  */
 public interface UserService extends IService<User> {
 

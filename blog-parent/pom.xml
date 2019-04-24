@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.1.4.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -32,23 +32,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-        <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
         <shiro.version>1.4.0</shiro.version>
 
         <!-- DAO -->
-        <mybatis.version>2.0.1</mybatis.version>
         <mysql.verison>5.1.47</mysql.verison>
+        <!--mybatis-plus-->
+        <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <fremaker.version>2.3.28</fremaker.version>
 
         <!-- alibaba -->
-        <druid.version>1.1.3</druid.version>
+        <druid.version>1.1.16</druid.version>
         <alibaba-fastjson.version>1.1.41</alibaba-fastjson.version>
 
         <!-- lombok -->
-        <lombok.version>1.14.4</lombok.version>
+        <lombok.version>1.18.6</lombok.version>
 
         <!-- admin监控-->
         <admin-starter-server.version>2.0.4</admin-starter-server.version>
+
+
+
 
     </properties>
 
@@ -87,6 +92,7 @@
             </dependency>
 
             <!-- DAO -->
+            <!--这里mysql.version对应了自己设定的5.7版本和boot自带的8.0版本，仔细选择-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -112,7 +118,7 @@
             <!-- alibaba -->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
+                <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
             <dependency>
@@ -125,6 +131,24 @@
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${admin-starter-server.version}</version>
             </dependency>
+
+            <!-- mybatis plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${fremaker.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

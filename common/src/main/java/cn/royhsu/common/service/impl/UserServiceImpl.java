@@ -1,8 +1,8 @@
-package cn.royhsuuser.service.impl;
+package cn.royhsu.common.service.impl;
 
-import cn.royhsuuser.entity.User;
-import cn.royhsuuser.mapper.UserMapper;
-import cn.royhsuuser.service.UserService;
+import cn.blog.adminserver.mapper.UserMapper;
+import cn.royhsu.common.service.UserService;
+import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-23
+ * @since 2019-04-24
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {

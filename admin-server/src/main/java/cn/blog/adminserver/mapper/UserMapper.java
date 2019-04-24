@@ -1,6 +1,6 @@
-package cn.royhsuuser.mapper;
+package cn.blog.adminserver.mapper;
 
-import cn.royhsuuser.entity.User;
+import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-23
+ * @since 2019-04-24
  */
 public interface UserMapper extends BaseMapper<User> {
 

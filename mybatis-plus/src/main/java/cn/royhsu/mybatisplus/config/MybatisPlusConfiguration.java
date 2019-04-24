@@ -1,4 +1,4 @@
-package com.lyc.testmybatisplus.config;
+package cn.royhsu.mybatisplus.config;
 /**
  * @Description : mybatis-plus分页插件
  * ---------------------------------
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan({"com.lyc.testmybatisplus.mapper","com.baomidou.cloud.service.*.mapper*"})
+@MapperScan({"cn.royhsu.mybatisplus.mapper","com.baomidou.cloud.service.*.mapper*"})
 public class MybatisPlusConfiguration {
 
     /**
