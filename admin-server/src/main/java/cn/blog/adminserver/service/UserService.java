@@ -1,4 +1,4 @@
-package cn.royhsu.common.service;
+package cn.blog.adminserver.service;
 
 import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;

@@ -1,7 +1,7 @@
-package cn.royhsu.common.service.impl;
+package cn.blog.adminserver.service.impl;
 
 import cn.blog.adminserver.mapper.UserMapper;
-import cn.royhsu.common.service.UserService;
+import cn.blog.adminserver.service.UserService;
 import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

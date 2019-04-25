@@ -23,12 +23,13 @@ public class LoginController {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
+            return "index";
         } catch (IncorrectCredentialsException ice) {
             return "error";
         } catch (UnknownAccountException uae){
             return "error";
         }
-        return "index";
+
     }
 
 }

@@ -30,7 +30,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
         shiroFilterFactoryBean.setLoginUrl("/login");
         shiroFilterFactoryBean.setSuccessUrl("/index");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/login");
         return shiroFilterFactoryBean;
     }
 
@@ -66,7 +66,7 @@ public class ShiroConfig {
         SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
         Properties properties = new Properties();
         properties.setProperty("DatabaseException", "databaseError");//数据库异常
-        properties.setProperty("UnauthorizedException", "403");//没有权限
+        properties.setProperty("UnauthorizedException", "login");//没有权限
         r.setExceptionMappings(properties);
         r.setDefaultErrorView("error");
         r.setExceptionAttribute("ex");

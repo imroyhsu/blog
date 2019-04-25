@@ -1,11 +1,10 @@
 package cn.blog.adminserver.controller;
 
 
-import cn.royhsu.common.service.UserService;
+import cn.blog.adminserver.service.UserService;
 import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +23,7 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 public class LoginController {
     @Resource
-    private UserService userService;
+    public UserService userService;
 
     @RequestMapping(value = "/login/${username}", method = RequestMethod.GET)
     public String login(@RequestParam(value = "username") String name, @RequestParam(value = "password") String password){

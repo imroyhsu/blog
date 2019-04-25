@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/testjdbc?useUnicode=true&characterEncoding=utf8
     username: root
     password: 692806
+    #2.1版本后，添加druid-spring-boot-starter依赖，可以直接联想出相关配置，且省略配置类
     druid:
       #初始
       initial-size: 5
@@ -72,7 +73,7 @@ management:
 
 
 
-#2.1版本后，添加druid-spring-boot-starter依赖，可以直接联想出相关配置，且省略配置类
+
 
 
 # slf4j日志配置

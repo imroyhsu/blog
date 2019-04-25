@@ -1,5 +1,6 @@
 package cn.blog.adminserver;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
+@MapperScan("cn.blog.adminserver.mapper")
 public class AdminServerApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(AdminServerApplication.class);
@@ -20,6 +22,8 @@ public class AdminServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminServerApplication.class, args);
     }
+
+
 
     @Value("${server.port}")
     String port;

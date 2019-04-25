@@ -9,12 +9,13 @@ spring:
     name: blog-zuul
 zuul:
   routes:
-    artical:
-      path: /artical/**
-      serviceId: artical-server
+    article:
+      path: /article/**
+      serviceId: article-server
     admin:
       path: /admin/**
       serviceId: admin-server
+  ignored-services: article-server,admin-server
 # slf4j日志配置
 logging:
   # 配置级别
