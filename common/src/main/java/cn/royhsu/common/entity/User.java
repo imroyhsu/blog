@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,6 +25,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @TableName("blog_user")
 @FieldNameConstants
+@AllArgsConstructor
 public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;

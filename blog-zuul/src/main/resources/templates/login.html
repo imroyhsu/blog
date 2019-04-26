@@ -6,10 +6,10 @@
 </head>
 <body>
 错误信息：<h4 th:text="${msg}"></h4>
-<form action="" method="post">
-    <p>账号：<input type="text" name="username" /></p>
-    <p>密码：<input type="text" name="password" /></p>
-    <p><input type="submit" value="登录"/></p>
+<form th:action="@{/loginVerify}" method="post">
+    <br>用户名：<input type="text" name="username"></br>
+    <br>密码：<input type="text" name="password"><br>
+    <input type="submit" value="登录">
 </form>
 </body>
 </html>

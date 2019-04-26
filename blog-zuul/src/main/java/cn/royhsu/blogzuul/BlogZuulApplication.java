@@ -1,15 +1,17 @@
 package cn.royhsu.blogzuul;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"cn.royhsu.blogzuul"})
+@EnableEurekaClient
+@MapperScan("cn.blog.adminserver.mapper")
 public class BlogZuulApplication {
 
     public static void main(String[] args) {
