@@ -39,7 +39,8 @@ public class User extends Model<User> {
 
     private String salt;
 
-    private Integer status;
+    private Integer status;//1.正常, 2.被锁定
+
 
 
     @Override

@@ -35,8 +35,9 @@ public class MyRealm extends AuthorizingRealm{
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         System.out.println("开始身份认证");
+
         String username = (String) token.getPrincipal();
-        String password = (String) token.getCredentials();
+        String password = new String((char[])token.getCredentials());
         User user = loginService.getOne(new QueryWrapper<User>()
                 .eq(User.Fields.username,username));//调用mybatis-plus的条件查询
         System.out.println("User" + user);//测试

@@ -25,6 +25,7 @@ public class ShiroConfig {
         //过滤链，/**放最后
         Map<String, String> filterChainMap = new LinkedHashMap<>();
         filterChainMap.put("/static/**", "anon");
+        filterChainMap.put("/loginVerify","anon");
         filterChainMap.put("/logout","logout");
         filterChainMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
