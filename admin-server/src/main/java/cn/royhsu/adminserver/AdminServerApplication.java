@@ -10,11 +10,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-@MapperScan("cn.royhsu.adminserver.mapper")
+@MapperScan("cn.royhsu.adminserver.admin.mapper")
 public class AdminServerApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(AdminServerApplication.class);

@@ -10,12 +10,10 @@
     <name>blog-parent</name>
     <packaging>pom</packaging>
 
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.4.RELEASE</version>
-        <relativePath/>
     </parent>
 
     <modules>
@@ -26,7 +24,6 @@
         <module>../blog-admin</module>
         <module>../common</module>
     </modules>
-
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,7 +40,7 @@
         <fremaker.version>2.3.28</fremaker.version>
 
         <!-- alibaba -->
-        <druid.version>1.1.16</druid.version>
+        <druid.version>1.1.10</druid.version>
         <alibaba-fastjson.version>1.1.41</alibaba-fastjson.version>
 
         <!-- lombok -->
@@ -51,11 +48,9 @@
 
         <!-- admin监控-->
         <admin-starter-server.version>2.0.4</admin-starter-server.version>
-
-
-
-
     </properties>
+
+
 
     <dependencies>
         <!--<dependency>-->
@@ -71,9 +66,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
@@ -89,8 +84,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-
             <!-- DAO -->
             <!--这里mysql.version对应了自己设定的5.7版本和boot自带的8.0版本，仔细选择-->
             <dependency>

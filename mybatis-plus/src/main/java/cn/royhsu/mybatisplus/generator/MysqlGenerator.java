@@ -89,10 +89,10 @@ public class MysqlGenerator {
                         // public User setName(String name) {this.name = name; return this;}
                         // .setEntityBuilderModel(true)
                         // 【实体】是否为lombok模型（默认 false）<a href="https://projectlombok.org/">document</a>
-                         .setEntityLombokModel(true)
-                        // Boolean类型字段是否移除is前缀处理
-                        // .setEntityBooleanColumnRemoveIsPrefix(true)
-                        // .setControllerMappingHyphenStyle(true)
+                        .setEntityLombokModel(true)
+                // Boolean类型字段是否移除is前缀处理
+                // .setEntityBooleanColumnRemoveIsPrefix(true)
+                // .setControllerMappingHyphenStyle(true)
         ).setPackageInfo(
                 // 包配置
                 new PackageConfig()

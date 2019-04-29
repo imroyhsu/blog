@@ -1,7 +1,7 @@
 package cn.royhsu.blogzuul.service;
 
 
-import cn.royhsu.common.entity.User;
+import cn.royhsu.adminserver.admin.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

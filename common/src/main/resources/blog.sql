@@ -1,4 +1,4 @@
--- ----------------------------------------------------
+    -- ----------------------------------------------------
 --  用户
 -- ----------------------------------------------------
 --  Table structure for `sys_user`
@@ -177,8 +177,8 @@ CREATE TABLE `sys_dict` (
     `type` varchar(100) NOT NULL COMMENT '类型',
     `description` varchar(100) NOT NULL COMMENT '描述',
     `sort` decimal(10,0) NOT NULL COMMENT '排序（升序）',
-    `create_by` varchar(50) COMMENT '创建人',
-    `create_time` datetime COMMENT '创建时间',
+    `createBy` varchar(50) COMMENT '创建人',
+    `createTime` datetime COMMENT '创建时间',
     `lastUpdateBy` varchar(50) COMMENT '更新人',
     `lastUpdateTime` datetime COMMENT '更新时间',
     `remarks` varchar(255) DEFAULT NULL COMMENT '备注信息',

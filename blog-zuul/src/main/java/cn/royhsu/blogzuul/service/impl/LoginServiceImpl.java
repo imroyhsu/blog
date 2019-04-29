@@ -1,9 +1,7 @@
 package cn.royhsu.blogzuul.service.impl;
 
-import cn.royhsu.adminserver.mapper.UserMapper;
+import cn.royhsu.adminserver.admin.service.impl.UserServiceImpl;
 import cn.royhsu.blogzuul.service.LoginService;
-import cn.royhsu.common.entity.User;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +13,6 @@ import org.springframework.stereotype.Service;
  * @since 2019-04-24
  */
 @Service
-public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements LoginService {
+public class LoginServiceImpl extends UserServiceImpl implements LoginService {
 
 }

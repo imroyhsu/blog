@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @EnableEurekaClient
-@MapperScan("cn.blog.adminserver.mapper")
+@MapperScan("cn.royhsu.adminserver.admin.mapper")
 public class BlogZuulApplication {
 
     public static void main(String[] args) {

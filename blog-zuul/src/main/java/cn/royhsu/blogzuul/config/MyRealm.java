@@ -1,7 +1,7 @@
 package cn.royhsu.blogzuul.config;
 
+import cn.royhsu.adminserver.admin.entity.User;
 import cn.royhsu.blogzuul.service.LoginService;
-import cn.royhsu.common.entity.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

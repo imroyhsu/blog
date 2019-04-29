@@ -1,10 +1,8 @@
 package cn.royhsu.mybatisplus.config;
+
 /**
- * @Description : mybatis-plus分页插件
- * ---------------------------------
- * @Author : Ethan Liu
- * @Date :
- *
+ * @author Ethan Liu
+ * @since 2019/4/29 17:00
  */
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
@@ -25,7 +23,7 @@ public class MybatisPlusConfiguration {
     /**
      * 性能优化 设置 dev test 环境开启
      */
-    @Bean
+@Bean
     @Profile({"dev","test"})
     public PerformanceInterceptor performanceInterceptor() {
         PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();

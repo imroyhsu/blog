@@ -19,7 +19,7 @@ create table blog_role(
 create table blog_permission(
     id  bigint primary key auto_increment comment '编号',
     permissionName varchar(20)  not null comment '权限名',
-    remark varchar(100) comment '备注',
+    remark varchar(100) comment '备注'
 )engine = InnoDB default charset = utf8 comment='角色';
 
 create table blog_user_role(
@@ -38,8 +38,8 @@ create table blog_role_permission(
     id  bigint primary key auto_increment comment '编号',
     roleId bigint comment '角色ID',
     permissionId bigint comment '权限ID',
-    KEY fk_user_role_blog_user_1 (userId),
-    KEY fk_user_role_blog_role_1 (roleId),
+    KEY fk_user_role_permission_permission_1 (permissionId),
+    KEY fk_user_role_permission_role_1 (roleId),
     constraint fk_role_permission_blog_role_1 foreign key (roleId) references
         blog_role(id) on delete CASCADE on UPDATE CASCADE,
     constraint fk_role_permission_blog_permission_1 foreign key (permissionId) references
