@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.royhsu</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>blog-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -51,15 +51,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- mybatis plus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>org.freemarker</groupId>

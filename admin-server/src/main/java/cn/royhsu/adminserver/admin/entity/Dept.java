@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -52,29 +52,12 @@ public class Dept extends Model<Dept> {
     @TableField("orderNum")
     private Integer orderNum;
 
-    /**
-     * 创建人
-     */
-    @TableField("createBy")
-    private String createBy;
+    private List<Dept> children;
 
-    /**
-     * 创建时间
-     */
-    @TableField("createTime")
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    @TableField("lastUpdateBy")
-    private String lastUpdateBy;
-
-    /**
-     * 更新时间
-     */
-    @TableField("lastUpdateTime")
-    private LocalDateTime lastUpdateTime;
+    // 非数据库字段
+    private String parentName;
+    // 非数据库字段
+    private Integer level;
 
     /**
      * 是否删除  -1：已删除  0：正常

@@ -1,30 +1,28 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-
 /**
  * <p>
- * 字典表
+ * 用户
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-28
+ * @since 2019-04-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_dict")
-public class Dict extends Model<Dict> {
+@TableName("blog_user")
+public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,37 +33,37 @@ public class Dict extends Model<Dict> {
     private Long id;
 
     /**
-     * 数据值
+     * 用户名
      */
-    private String value;
+    private String username;
 
     /**
-     * 标签名
+     * 密码
      */
-    private String label;
+    private String password;
 
     /**
-     * 类型
+     * 盐
      */
-    private String type;
+    private String salt;
 
     /**
-     * 描述
+     * 邮箱
      */
-    private String description;
+    private String email;
 
     /**
-     * 排序（升序）
+     * 手机号
      */
-    private BigDecimal sort;
+    private String mobile;
 
     /**
-     * 备注信息
+     * 状态 0：锁定  1：正常
      */
-    private String remarks;
+    private Integer status;
 
     /**
-     * 是否删除  -1：已删除  0：正常
+     * 是否删除 -1：已删除  0：正常
      */
     @TableField("delFlag")
     private Integer delFlag;

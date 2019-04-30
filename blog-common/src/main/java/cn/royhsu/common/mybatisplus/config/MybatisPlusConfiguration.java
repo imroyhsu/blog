@@ -1,4 +1,4 @@
-package cn.royhsu.mybatisplus.config;
+package cn.royhsu.common.mybatisplus.config;
 
 /**
  * @author Ethan Liu

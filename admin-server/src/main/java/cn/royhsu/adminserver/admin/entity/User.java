@@ -11,7 +11,8 @@ import lombok.experimental.Accessors;
 import lombok.experimental.FieldNameConstants;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -72,29 +73,7 @@ public class User extends Model<User> {
     @TableField("deptId")
     private Long deptId;
 
-    /**
-     * 创建人
-     */
-    @TableField("createBy")
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    @TableField("createTime")
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    @TableField("lastUpdateBy")
-    private String lastUpdateBy;
-
-    /**
-     * 更新时间
-     */
-    @TableField("lastUpdateTime")
-    private LocalDateTime lastUpdateTime;
+    private String deptName;
 
     /**
      * 是否删除  -1：已删除  0：正常
@@ -102,6 +81,22 @@ public class User extends Model<User> {
     @TableField("delFlag")
     private Integer delFlag;
 
+    private String roleNames;
+
+    private List<UserRole> userRoles = new ArrayList<>();
+
+
+    public User(Long id, String username, String password, String salt, String email, String mobile, Integer status, Long deptId, Integer delFlag) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.salt = salt;
+        this.email = email;
+        this.mobile = mobile;
+        this.status = status;
+        this.deptId = deptId;
+        this.delFlag = delFlag;
+    }
 
     @Override
     protected Serializable pkVal() {

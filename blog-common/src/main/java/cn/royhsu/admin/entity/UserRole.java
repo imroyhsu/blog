@@ -1,28 +1,27 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
 /**
  * <p>
- * 用户与角色对应关系
+ * 用户与角色对应表
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-28
+ * @since 2019-04-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_user_role")
+@TableName("blog_user_role")
 public class UserRole extends Model<UserRole> {
 
     private static final long serialVersionUID = 1L;
