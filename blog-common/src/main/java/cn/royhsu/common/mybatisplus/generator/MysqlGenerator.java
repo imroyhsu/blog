@@ -20,8 +20,8 @@ public class MysqlGenerator {
     private static final String packagePrefix = "cn.royhsu.";      //包前缀
     private static final String packageName="admin";                //包名
     private static final String authorName="Ethan Liu";            //作者
-    private static final String table="blog_user_role";                 //table名
-    private static final String prefix="blog_";                    //table前缀
+    private static final String table="sys_user_token";                 //table名
+    private static final String prefix="sys_";                    //table前缀
     private static final String path = "E:/blog/blog-common/";      //当前路径
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testjdbc?useUnicode=true&characterEncoding=utf8";
     private static final String USER_NAME = "root";

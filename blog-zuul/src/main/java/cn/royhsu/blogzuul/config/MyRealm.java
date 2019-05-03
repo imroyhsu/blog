@@ -12,10 +12,6 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 
 
-/**
- * 由于使用了feign，这里不参与数据库读取，直接调用common包中暴露的服务
- */
-
 public class MyRealm extends AuthorizingRealm{
 
     //调用服务

@@ -73,30 +73,13 @@ public class User extends Model<User> {
     @TableField("deptId")
     private Long deptId;
 
-    private String deptName;
-
     /**
      * 是否删除  -1：已删除  0：正常
      */
     @TableField("delFlag")
     private Integer delFlag;
 
-    private String roleNames;
-
-    private List<UserRole> userRoles = new ArrayList<>();
-
-
-    public User(Long id, String username, String password, String salt, String email, String mobile, Integer status, Long deptId, Integer delFlag) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.salt = salt;
-        this.email = email;
-        this.mobile = mobile;
-        this.status = status;
-        this.deptId = deptId;
-        this.delFlag = delFlag;
-    }
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     protected Serializable pkVal() {

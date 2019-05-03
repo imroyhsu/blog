@@ -2,7 +2,7 @@ package cn.royhsu.adminserver.admin.controller;
 
 
 import cn.royhsu.adminserver.admin.entity.User;
-import cn.royhsu.adminserver.admin.service.UserService;
+import cn.royhsu.adminserver.admin.service.impl.UserServiceImpl;
 import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -26,9 +26,9 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource
-    private UserService userService;
+    private UserServiceImpl userService;
 
-    @RequestMapping("/getOne/{id}")
+    @RequestMapping("/getById/{id}")
     public User getById(@PathVariable(value = "id") int id ){
         return userService.getById(id);
 
@@ -36,11 +36,7 @@ public class UserController {
 
     @RequestMapping("/getByPage")
     public HttpResult getByPage(){
-
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByAsc("id");
-        Page<User> page = new Page<>(1,5);
-        IPage<User> iPage = userService.page(page,queryWrapper);
+        IPage<User> iPage = userService.page(new Page<>(1,5),new QueryWrapper<User>().orderByAsc("id"));
         System.out.println(iPage.getCurrent());
         System.out.println(iPage.getSize());
         return HttpResult.ok(iPage);

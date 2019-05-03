@@ -1,5 +1,6 @@
 package cn.royhsu.blogzuul.config;
 
+import cn.royhsu.blogzuul.oauth2.OAuth2Filter;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -22,6 +24,10 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+        //自定义oauth2过滤器，替代默认的过滤器
+        Map<String, Filter> filters = new LinkedHashMap<>();
+        filters.put("oauth2", new OAuth2Filter());
+        shiroFilterFactoryBean.setFilters(filters);
         //过滤链，/**放最后
         Map<String, String> filterChainMap = new LinkedHashMap<>();
         filterChainMap.put("/static/**", "anon");

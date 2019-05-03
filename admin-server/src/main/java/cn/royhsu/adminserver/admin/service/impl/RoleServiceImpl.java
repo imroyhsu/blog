@@ -6,6 +6,10 @@ import cn.royhsu.adminserver.admin.service.RoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * <p>
  * 角色 服务实现类
@@ -16,5 +20,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
+    @Resource
+    private RoleMapper roleMapper;
 
+    @Override
+    public List<Role> findByUserId(Serializable userId) {
+        return roleMapper.findByUserId(userId);
+    }
 }

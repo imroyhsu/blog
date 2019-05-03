@@ -10,21 +10,21 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.List;
+import java.time.LocalDateTime;
 
 /**
  * <p>
- * 角色
+ * 用户Token
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-28
+ * @since 2019-05-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_role")
-public class Role extends Model<Role> {
+@TableName("sys_user_token")
+public class UserToken extends Model<UserToken> {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,25 +34,43 @@ public class Role extends Model<Role> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    /**
-     * 角色名称
-     */
-    @TableField("roleName")
-    private String roleName;
+    @TableField("userId")
+    private Long userId;
 
     /**
-     * 备注
+     * token
      */
-    private String remark;
+    private String token;
 
     /**
-     * 是否删除  -1：已删除  0：正常
+     * 过期时间
      */
-    @TableField("delFlag")
-    private Integer delFlag;
+    @TableField("expireTime")
+    private LocalDateTime expireTime;
 
+    /**
+     * 创建人
+     */
+    @TableField("createBy")
+    private String createBy;
 
-    private List<Menu> menus;
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新人
+     */
+    @TableField("lastUpdateBy")
+    private String lastUpdateBy;
+
+    /**
+     * 更新时间
+     */
+    @TableField("lastUpdateTime")
+    private LocalDateTime lastUpdateTime;
 
 
     @Override

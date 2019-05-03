@@ -6,6 +6,10 @@ import cn.royhsu.adminserver.admin.service.MenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * <p>
  * 菜单管理 服务实现类
@@ -16,5 +20,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
+    @Resource
+    private MenuMapper menuMapper;
 
+    @Override
+    public List<Menu> findByRoleId(Serializable roleId) {
+        return menuMapper.findByRoleId(roleId);
+    }
 }
