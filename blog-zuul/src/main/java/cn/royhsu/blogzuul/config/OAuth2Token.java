@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul.oauth2;
+package cn.royhsu.blogzuul.config;
 
 import org.apache.shiro.authc.AuthenticationToken;
 

@@ -8,10 +8,9 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.UnauthenticatedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Ethan Liu
@@ -19,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Controller
 public class LoginController {
-    @RequestMapping(value = "/loginVerify",method = RequestMethod.POST)
+
+    @PostMapping(value = "/sys/loginVerify")
     public String loginVerify(@RequestParam("username") String username,
                         @RequestParam("password") String password){
 

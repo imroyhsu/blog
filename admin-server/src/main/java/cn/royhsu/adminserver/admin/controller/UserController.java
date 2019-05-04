@@ -31,7 +31,11 @@ public class UserController {
     @RequestMapping("/getById/{id}")
     public User getById(@PathVariable(value = "id") int id ){
         return userService.getById(id);
+    }
 
+    @RequestMapping("/getByName/{name}")
+    public User getByName(@PathVariable(value = "name") String name ){
+        return userService.getByName(name);
     }
 
     @RequestMapping("/getByPage")

@@ -1,6 +1,5 @@
 package cn.royhsu.blogzuul.config;
 
-import cn.royhsu.blogzuul.oauth2.OAuth2Filter;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -54,9 +53,9 @@ public class ShiroConfig {
     }
 
     @Bean
-    public MyRealm myRealm(){
+    public OAuth2Realm myRealm(){
         System.out.println("开始创建realm");//测试用
-        return new MyRealm();
+        return new OAuth2Realm();
     }
 
     //添加AOP支持

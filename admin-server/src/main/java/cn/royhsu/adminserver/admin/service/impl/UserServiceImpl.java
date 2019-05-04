@@ -1,6 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
+import cn.royhsu.adminserver.admin.entity.Menu;
 import cn.royhsu.adminserver.admin.entity.User;
+import cn.royhsu.adminserver.admin.mapper.MenuMapper;
 import cn.royhsu.adminserver.admin.mapper.UserMapper;
 import cn.royhsu.adminserver.admin.service.UserService;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -10,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -26,6 +31,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Resource
     private UserMapper userMapper;
 
+    @Resource
+    private MenuMapper menuMapper;
+
     @Override
     public IPage<User> findPage(IPage<User> page, Wrapper<User> queryWrapper) {
         return userMapper.findPage(page, queryWrapper);
@@ -36,5 +44,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userMapper.findById(id);
     }
 
+    @Override
+    public User getByName(String username) {
+        return userMapper.findByName(username);
+    }
 
+    @Override
+    public Set<String> findPermissions(String username) {
+        Set<String> perms = new HashSet<>();
+        List<Menu> menus = menuMapper.findByUsername(username);
+        for(Menu menu:menus){
+            if(menu.getPerms()!=null && !"".equals(menu.getPerms())){
+                perms.add(menu.getPerms());
+            }
+        }
+        return perms;
+    }
 }

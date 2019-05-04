@@ -16,4 +16,6 @@ import java.util.List;
  */
 public interface MenuService extends IService<Menu> {
     List<Menu> findByRoleId(Serializable roleId);
+    List<Menu> findByUserId(Serializable userId);
+    List<Menu> findByUsername(String username);
 }

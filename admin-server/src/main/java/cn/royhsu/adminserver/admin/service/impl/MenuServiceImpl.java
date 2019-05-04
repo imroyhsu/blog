@@ -27,4 +27,14 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     public List<Menu> findByRoleId(Serializable roleId) {
         return menuMapper.findByRoleId(roleId);
     }
+
+    @Override
+    public List<Menu> findByUserId(Serializable userId) {
+        return menuMapper.findByUserId(userId);
+    }
+
+    @Override
+    public List<Menu> findByUsername(String username) {
+        return menuMapper.findByUsername(username);
+    }
 }

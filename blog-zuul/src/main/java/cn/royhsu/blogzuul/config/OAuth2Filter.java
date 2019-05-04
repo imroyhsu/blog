@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul.oauth2;
+package cn.royhsu.blogzuul.config;
 
 import cn.royhsu.common.utils.StringUtils;
 import cn.royhsu.core.http.HttpResult;

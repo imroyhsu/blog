@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * <p>
@@ -19,6 +20,8 @@ public interface UserService extends IService<User> {
     IPage<User> findPage(IPage<User> page, Wrapper<User> queryWrapper);
 
     User getById(Serializable id);
+    User getByName(String id);
+    Set<String> findPermissions(String username);
 
 
 }
