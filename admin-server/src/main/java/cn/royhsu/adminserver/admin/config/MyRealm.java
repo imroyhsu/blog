@@ -1,7 +1,7 @@
-package cn.royhsu.blogzuul.config;
+package cn.royhsu.adminserver.admin.config;
 
 import cn.royhsu.adminserver.admin.entity.User;
-import cn.royhsu.blogzuul.service.LoginService;
+import cn.royhsu.adminserver.admin.service.UserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -16,7 +16,7 @@ public class MyRealm extends AuthorizingRealm{
 
     //调用服务
     @Resource
-    private LoginService loginService;
+    private UserService userService;
 
 
     @Override
@@ -34,7 +34,7 @@ public class MyRealm extends AuthorizingRealm{
 
         String username = (String) token.getPrincipal();
         String password = new String((char[])token.getCredentials());
-        User user = loginService.getOne(new QueryWrapper<User>()
+        User user = userService.getOne(new QueryWrapper<User>()
                 .eq(User.Fields.username,username));//调用mybatis-plus的条件查询
         System.out.println("User" + user);//测试
         if (user == null){

@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,8 +52,32 @@ public class Role extends Model<Role> {
     @TableField("delFlag")
     private Integer delFlag;
 
-
+    //非数据库字段
     private List<Menu> menus;
+
+    /**
+     * 创建人
+     */
+    @TableField("createBy")
+    private String createBy;
+
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private Date createTime;
+
+    /**
+     * 更新人
+     */
+    @TableField("lastUpdateBy")
+    private String lastUpdateBy;
+
+    /**
+     * 更新时间
+     */
+    @TableField("lastUpdateTime")
+    private Date lastUpdateTime;
 
 
     @Override

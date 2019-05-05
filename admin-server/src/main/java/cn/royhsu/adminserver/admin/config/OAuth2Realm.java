@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul.config;
+package cn.royhsu.adminserver.admin.config;
 
 import cn.royhsu.adminserver.admin.entity.User;
 import cn.royhsu.adminserver.admin.entity.UserToken;
@@ -13,7 +13,6 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.time.ZoneOffset;
 import java.util.Set;
 
 /**
@@ -43,9 +42,9 @@ public class OAuth2Realm extends AuthorizingRealm {
         User user = (User) principals.getPrimaryPrincipal();
         // 用户权限列表，根据用户拥有的权限标识与如 @permission标注的接口对比，决定是否可以调用接口
         Set<String> permSet = userService.findPermissions(user.getUsername());
-        SimpleAuthorizationInfo authorizationInfoinfo = new SimpleAuthorizationInfo();
-        authorizationInfoinfo.setStringPermissions(permSet);
-        return authorizationInfoinfo;
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        authorizationInfo.setStringPermissions(permSet);
+        return authorizationInfo;
     }
 
 
@@ -60,19 +59,17 @@ public class OAuth2Realm extends AuthorizingRealm {
         // 根据accessToken，查询用户token信息
         UserToken userToken = userTokenService.getOne(new QueryWrapper<UserToken>().
                 eq(UserToken.Fields.token,aToken));
-        if(userToken == null || userToken.getExpireTime().toEpochSecond(ZoneOffset.of("+8")) <
-        System.currentTimeMillis()){
+        if(userToken == null || userToken.getExpireTime().getTime() < System.currentTimeMillis()){
             // token已经失效
             throw new IncorrectCredentialsException("token失效，请重新登录");
         }
-        // 查询用户信息
+        // 查询用户信息，并验证是否被锁定
         User user = userService.getById(userToken.getUserId());
-        // 账号被锁定
         if(user.getStatus() == 0){
             throw new LockedAccountException("账号已被锁定，请联系管理员");
         }
 
-        SimpleAuthenticationInfo authenticationInfoinfo = new SimpleAuthenticationInfo(user,aToken,getName());
-        return authenticationInfoinfo;
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user,aToken,getName());
+        return authenticationInfo;
     }
 }

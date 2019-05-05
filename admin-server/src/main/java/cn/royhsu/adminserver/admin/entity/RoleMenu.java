@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -44,6 +45,30 @@ public class RoleMenu extends Model<RoleMenu> {
      */
     @TableField("menuId")
     private Long menuId;
+
+    /**
+     * 创建人
+     */
+    @TableField("createBy")
+    private String createBy;
+
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private Date createTime;
+
+    /**
+     * 更新人
+     */
+    @TableField("lastUpdateBy")
+    private String lastUpdateBy;
+
+    /**
+     * 更新时间
+     */
+    @TableField("lastUpdateTime")
+    private Date lastUpdateTime;
 
 
     @Override

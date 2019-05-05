@@ -12,6 +12,7 @@ import lombok.experimental.FieldNameConstants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -79,6 +80,31 @@ public class User extends Model<User> {
     @TableField("delFlag")
     private Integer delFlag;
 
+    /**
+     * 创建人
+     */
+    @TableField("createBy")
+    private String createBy;
+
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private Date createTime;
+
+    /**
+     * 更新人
+     */
+    @TableField("lastUpdateBy")
+    private String lastUpdateBy;
+
+    /**
+     * 更新时间
+     */
+    @TableField("lastUpdateTime")
+    private Date lastUpdateTime;
+
+    //非数据库字段
     private List<Role> roles = new ArrayList<>();
 
     @Override

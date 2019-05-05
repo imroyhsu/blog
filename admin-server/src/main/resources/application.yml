@@ -51,10 +51,6 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
-
-
-
-
   application:
     name: admin-server
 eureka:
@@ -88,3 +84,11 @@ logging:
   pattern:
     console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
     file: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+
+
+  devtools:
+    livereload:
+      enabled: true #是否支持livereload
+      port: 35729
+    restart:
+      enabled: true #是否支持热部署

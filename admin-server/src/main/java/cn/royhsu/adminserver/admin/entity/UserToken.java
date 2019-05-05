@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 import lombok.experimental.FieldNameConstants;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -48,7 +48,7 @@ public class UserToken extends Model<UserToken> {
      * 过期时间
      */
     @TableField("expireTime")
-    private LocalDateTime expireTime;
+    private Date expireTime;
 
     /**
      * 创建人
@@ -60,7 +60,7 @@ public class UserToken extends Model<UserToken> {
      * 创建时间
      */
     @TableField("createTime")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * 更新人
@@ -72,7 +72,7 @@ public class UserToken extends Model<UserToken> {
      * 更新时间
      */
     @TableField("lastUpdateTime")
-    private LocalDateTime lastUpdateTime;
+    private Date lastUpdateTime;
 
 
     @Override

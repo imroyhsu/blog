@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul.config;
+package cn.royhsu.adminserver.admin.config;
 
 import cn.royhsu.common.utils.StringUtils;
 import cn.royhsu.core.http.HttpResult;
@@ -45,7 +45,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, "invalid token");
             String json = JSONObject.toJSONString(result);
-            httpResponse.getWriter().print(json);
+            httpResponse.getWriter().print(json)    ;
             return false;
         }
         return executeLogin(request, response);

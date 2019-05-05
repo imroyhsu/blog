@@ -55,6 +55,13 @@
         <commons.fileupload.version>1.4</commons.fileupload.version>
         <commons.io.version>2.6</commons.io.version>
         <commons.codec.version>1.11</commons.codec.version>
+
+        <!-- swagger-->
+        <swagger.version>2.8.0</swagger.version>
+
+
+
+
     </properties>
 
 
@@ -177,6 +184,18 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
+            </dependency>
+
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

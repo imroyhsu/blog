@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul.config;
+package cn.royhsu.adminserver.admin.config;
 
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -30,9 +30,14 @@ public class ShiroConfig {
         //过滤链，/**放最后
         Map<String, String> filterChainMap = new LinkedHashMap<>();
         filterChainMap.put("/static/**", "anon");
-        filterChainMap.put("/loginVerify","anon");
+        // 查看SQL监控（druid）
+        filterChainMap.put("/druid/**", "anon");
+        //主页和登录界面
+        filterChainMap.put("/","anon");
+        filterChainMap.put("/sys/loginVerify","anon");
         filterChainMap.put("/logout","logout");
-        filterChainMap.put("/**","authc");
+        //其他都交给OAuth2Filter处理
+        filterChainMap.put("/**","oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
         shiroFilterFactoryBean.setLoginUrl("/login");
         shiroFilterFactoryBean.setSuccessUrl("/index");
@@ -72,6 +77,7 @@ public class ShiroConfig {
         SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
         Properties properties = new Properties();
         properties.setProperty("DatabaseException", "databaseError");//数据库异常
+        properties.setProperty("IncorrectCredentialsException", "login");
         properties.setProperty("UnauthorizedException", "login");//没有权限
         r.setExceptionMappings(properties);
         r.setDefaultErrorView("error");
