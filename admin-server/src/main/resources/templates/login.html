@@ -6,7 +6,7 @@
 </head>
 <body>
 错误信息：<h4 th:text="${msg}"></h4>
-<form th:action="@{/loginVerify}" method="post">
+<form th:action="@{/login}" method="post">
     <br>用户名：<input type="text" name="username"></br>
     <br>密码：<input type="text" name="password"><br>
     <input type="submit" value="登录">

@@ -25,7 +25,6 @@ import java.util.Set;
  * @since 2019-04-28
  */
 @Service
-
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Resource

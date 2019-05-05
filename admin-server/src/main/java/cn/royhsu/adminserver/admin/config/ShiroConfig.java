@@ -6,12 +6,10 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
 import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * shiro的配置类 通过configuration和bean注解配置
@@ -34,14 +32,23 @@ public class ShiroConfig {
         filterChainMap.put("/druid/**", "anon");
         //主页和登录界面
         filterChainMap.put("/","anon");
-        filterChainMap.put("/sys/loginVerify","anon");
+        filterChainMap.put("/login","anon");
+        // swagger
+        filterChainMap.put("/swagger-ui.html", "anon");
+        filterChainMap.put("/swagger-resources", "anon");
+        filterChainMap.put("/v2/api-docs", "anon");
+        filterChainMap.put("/webjars/springfox-swagger-ui/**", "anon");
+        // 验证码
+        filterChainMap.put("/captcha.jpg**", "anon");
+        // 服务监控
+        filterChainMap.put("/actuator/**", "anon");
         filterChainMap.put("/logout","logout");
         //其他都交给OAuth2Filter处理
         filterChainMap.put("/**","oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        shiroFilterFactoryBean.setSuccessUrl("/index");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/login");
+//        shiroFilterFactoryBean.setLoginUrl("/login");
+//        shiroFilterFactoryBean.setSuccessUrl("/index");
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/login");
         return shiroFilterFactoryBean;
     }
 
@@ -71,17 +78,4 @@ public class ShiroConfig {
         return authorizationAttributeSourceAdvisor;
     }
 
-    //添加异常处理
-    @Bean(name = "SimpleMappingExceptionResolver")
-    public SimpleMappingExceptionResolver createExceptionResolver(){
-        SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
-        Properties properties = new Properties();
-        properties.setProperty("DatabaseException", "databaseError");//数据库异常
-        properties.setProperty("IncorrectCredentialsException", "login");
-        properties.setProperty("UnauthorizedException", "login");//没有权限
-        r.setExceptionMappings(properties);
-        r.setDefaultErrorView("error");
-        r.setExceptionAttribute("ex");
-        return r;
-    }
 }

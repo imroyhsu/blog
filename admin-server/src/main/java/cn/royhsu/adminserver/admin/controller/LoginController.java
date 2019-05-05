@@ -2,8 +2,8 @@ package cn.royhsu.adminserver.admin.controller;
 
 import cn.royhsu.adminserver.admin.entity.User;
 import cn.royhsu.adminserver.admin.entity.UserToken;
-import cn.royhsu.adminserver.admin.service.UserService;
-import cn.royhsu.adminserver.admin.service.UserTokenService;
+import cn.royhsu.adminserver.admin.service.impl.UserServiceImpl;
+import cn.royhsu.adminserver.admin.service.impl.UserTokenServiceImpl;
 import cn.royhsu.adminserver.admin.utils.PasswordUtils;
 import cn.royhsu.adminserver.admin.vo.LoginBean;
 import cn.royhsu.core.http.HttpResult;
@@ -21,9 +21,9 @@ import javax.annotation.Resource;
 public class LoginController {
 
     @Resource
-    private UserService userService;
+    private UserServiceImpl userService;
     @Resource
-    private UserTokenService userTokenService;
+    private UserTokenServiceImpl userTokenService;
     @Resource
 
 
@@ -42,7 +42,7 @@ public class LoginController {
         if(user.getStatus()==0){
             return HttpResult.error("账号已被锁定,请联系管理员");
         }
-
+        System.out.println("密码验证成功，创建token");
         //密码正确且未被锁定，则生成token或更新已有token
         UserToken data = userTokenService.createToken(user.getId());
         return HttpResult.ok(data);
