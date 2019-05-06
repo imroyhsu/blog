@@ -35,7 +35,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
     List<Menu> findByRoleId(@PathVariable(value = "roleId") Serializable roleId);
 
     @Select("select sys_menu.id menuId,name,parentId,url,perms,type,icon,orderNum,sys_menu.delFlag FROM sys_menu where sys_menu.id in " +
-            "(select sys_role_menu.menuId from sys_role_menu where roleId in (select sys_user_role_roleId from sys_user_role where userId = #{userId}) )")
+            "(select sys_role_menu.menuId from sys_role_menu where roleId in (select sys_user_role.roleId from sys_user_role where userId = #{userId}) )")
     @Results({
             @Result(id = true,property = "id", column = "id"),
             @Result(property = "menuName", column = "name"),

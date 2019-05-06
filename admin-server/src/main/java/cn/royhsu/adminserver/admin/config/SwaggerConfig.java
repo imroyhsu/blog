@@ -28,7 +28,7 @@ public class SwaggerConfig {
     public Docket createRestApi(){
         // 添加请求参数，我们这里把token作为请求头部参数传入后端
         ParameterBuilder parameterBuilder = new ParameterBuilder();
-        List<Parameter> parameters = new ArrayList<Parameter>();
+        List<Parameter> parameters = new ArrayList<>();
         parameterBuilder.name("token").description("令牌")
                 .modelRef(new ModelRef("string")).parameterType("header").required(false).build();
         parameters.add(parameterBuilder.build());

@@ -31,6 +31,9 @@ public class LoginController {
     public HttpResult loginVerify(@RequestBody LoginBean loginBean){
         String username = loginBean.getAccount();
         String password = loginBean.getPassword();
+        System.out.println("进入controller");
+
+
 
         User user = userService.getByName(username);
         if(user == null){
@@ -42,7 +45,6 @@ public class LoginController {
         if(user.getStatus()==0){
             return HttpResult.error("账号已被锁定,请联系管理员");
         }
-        System.out.println("密码验证成功，创建token");
         //密码正确且未被锁定，则生成token或更新已有token
         UserToken data = userTokenService.createToken(user.getId());
         return HttpResult.ok(data);
