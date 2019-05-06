@@ -1,4 +1,13 @@
 # blog
 博客项目
 
-sdfsd
+登录权限验证相关介绍
+shiro config 设置/sys/login为anon，其他接口的访问通过自定义的filter控制。
+密码验证不走shiro推荐的，封装request的username和password为usernamepasswordToken，再用subject.login的形式，直接在loginController中完成。
+之后生成一个包含了id，随机生成的token字符串和失效时间的userToken对象，并存入数据库，用于后续操作。即，有这个包含了id的token，在权限相关操作时可视为已登录。
+
+访问相关接口时，request需要包含一个token，filter会移动到其onAccessDenied方法，此时会验证token是否存在。方式是验证此时的request的header中是否有token头的信息。
+再执行executeLogin方法，之后执行到自定义的realm中的doGetAuthenticationInfo方法。
+由于这个方法需要一个实现了AuthenticationToken接口的类，故将userToken中的token提出，重新封装为一个OAuth2Token类，并将此对象传入doGetAuthenticationInfo方法中。
+该方法验证request传入的token字符串是否与数据库中的吻合，并验证是否失效，user是否被锁定。若成功则返回一个封装了user和token字符串的SimpleAuthenticationInfo对象，用于后续操作。
+
