@@ -24,16 +24,12 @@ public class LoginController {
     private UserServiceImpl userService;
     @Resource
     private UserTokenServiceImpl userTokenService;
-    @Resource
 
 
-    @PostMapping(value = "/sys/login")
+    @PostMapping(value = "/login")
     public HttpResult loginVerify(@RequestBody LoginBean loginBean){
         String username = loginBean.getAccount();
         String password = loginBean.getPassword();
-        System.out.println("进入controller");
-
-
 
         User user = userService.getByName(username);
         if(user == null){
