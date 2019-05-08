@@ -1,3 +1,15 @@
+server:
+  port: 8769
+spring:
+  application:
+    name: blog-zuul
+  devtools:
+    livereload:
+      enabled: true #是否支持livereload
+      port: 35729
+    restart:
+      enabled: true #是否支持热部署
+
 eureka:
   client:
     serviceUrl:
@@ -5,8 +17,6 @@ eureka:
   instance:
     instance-id: zuul
     prefer-ip-address: true
-server:
-  port: 8769
 
 zuul:
   routes:
@@ -17,6 +27,15 @@ zuul:
       path: /admin/**
       serviceId: admin-server
   ignored-services: article-server,admin-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 # slf4j日志配置
 logging:
   # 配置级别
@@ -29,23 +48,3 @@ logging:
   pattern:
     console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
     file: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
-
-spring:
-  application:
-    name: blog-zuul
-#  thymeleaf:
-#    prefix: classpath:/templates/  #prefix：指定模板所在的目录
-#    check-template-location: true  #check-template-location: 检查模板路径是否存在
-#    cache: false  #cache: 是否缓存，开发模式下设置为false，避免改了模板还要重启服务器，线上设置为true，可以提高性能。
-#    suffix:  .html
-#    encoding: UTF-8
-#    mode: HTML5
-#    servlet:
-#      content-type: text/html
-
-  devtools:
-    livereload:
-      enabled: true #是否支持livereload
-      port: 35729
-    restart:
-      enabled: true #是否支持热部署

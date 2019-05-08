@@ -1,12 +1,12 @@
+server:
+  port: 8000
 spring:
   application:
-    name: blog-admin
+    name: blog-admin-monitor
   security:
     user:
       name: "root"
       password: "123456"
-server:
-  port: 8000
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
@@ -14,6 +14,7 @@ eureka:
     metadata-map:
       user.name: ${spring.security.user.name}
       user.password: ${spring.security.user.password}
+    instance-id: ${spring.application.name}:${server.port}
   client:
     registryFetchIntervalSeconds: 5
     service-url:
@@ -29,7 +30,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-
 # slf4j日志配置
 logging:
   # 配置级别
