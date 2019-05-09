@@ -32,7 +32,7 @@ public class ShiroConfig {
         filterChainMap.put("/druid/**", "anon");
         //主页和登录界面
         filterChainMap.put("/","anon");
-        filterChainMap.put("/admin/login","anon");
+        filterChainMap.put("/login","anon");
         // swagger
         filterChainMap.put("/swagger-ui.html", "anon");
         filterChainMap.put("/swagger-resources", "anon");

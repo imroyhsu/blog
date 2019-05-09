@@ -11,17 +11,13 @@
         <groupId>cn.royhsu</groupId>
         <artifactId>blog-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../blog-parent</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>cn.royhsu</groupId>
             <artifactId>blog-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.royhsu</groupId>
-            <artifactId>blog-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

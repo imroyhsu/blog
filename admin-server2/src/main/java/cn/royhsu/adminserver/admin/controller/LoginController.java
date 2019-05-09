@@ -11,6 +11,8 @@ import cn.royhsu.core.http.HttpResult;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import org.apache.shiro.SecurityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +40,7 @@ public class LoginController {
     @Resource
     private Producer producer;
 
+    private static Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping("captcha.jpg")
     public void captcha(HttpServletResponse response) throws SecurityException, IOException{

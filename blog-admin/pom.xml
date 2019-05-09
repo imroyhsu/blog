@@ -12,6 +12,7 @@
         <groupId>cn.royhsu</groupId>
         <artifactId>blog-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../blog-parent</relativePath>
     </parent>
 
     <dependencies>

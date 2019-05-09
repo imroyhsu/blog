@@ -11,6 +11,8 @@ import cn.royhsu.core.http.HttpResult;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import org.apache.shiro.SecurityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +40,7 @@ public class LoginController {
     @Resource
     private Producer producer;
 
+    private static Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping("captcha.jpg")
     public void captcha(HttpServletResponse response) throws SecurityException, IOException{
@@ -53,7 +56,6 @@ public class LoginController {
         ServletOutputStream out = response.getOutputStream();
         ImageIO.write(image,"jpg", out);
         IOUtils.closeQuietly(out);
-
     }
 
     @PostMapping(value = "/login")
@@ -61,6 +63,7 @@ public class LoginController {
         String username = loginBean.getAccount();
         String password = loginBean.getPassword();
         String captcha = loginBean.getCaptcha();
+        System.out.println("执行login");
 
         //session中获取之前生成的验证码，和前台传来的进行匹配
         Object kaptcha = SecurityUtils.getSubject().getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
