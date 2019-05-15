@@ -1,4 +1,4 @@
-package cn.royhsu.blogzuul;
+package cn.royhsu.blogsso.admin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Swagger配置
+ *
  * @author Ethan Liu
  * @since 2019/5/5 17:28
  */
@@ -25,7 +26,7 @@ import java.util.List;
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         // 添加请求参数，我们这里把token作为请求头部参数传入后端
         ParameterBuilder parameterBuilder = new ParameterBuilder();
         List<Parameter> parameters = new ArrayList<>();
@@ -41,7 +42,7 @@ public class SwaggerConfig {
 //                .paths(PathSelectors.any()).build();
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
 //    	return new ApiInfoBuilder()
 //    			.title("Kitty API Doc")
 //    			.description("This is a restful api document of Kitty.")

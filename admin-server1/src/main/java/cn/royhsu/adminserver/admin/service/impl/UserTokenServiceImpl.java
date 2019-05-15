@@ -23,9 +23,10 @@ import java.util.Date;
 public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken> implements UserTokenService {
     //一天后过期
     private final static int EXPIRE = 3600 * 24;
+
     @Override
     public UserToken findByUserId(Serializable userId) {
-        return getOne(new QueryWrapper<UserToken>().eq(UserToken.Fields.userId,userId));
+        return getOne(new QueryWrapper<UserToken>().eq(UserToken.Fields.userId, userId));
     }
 
 
@@ -38,12 +39,12 @@ public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken
         Date expireTime = new Date(now.getTime() + EXPIRE * 1000);
 
         UserToken userToken = findByUserId(userId);
-        if(userToken != null){
+        if (userToken != null) {
             userToken.setExpireTime(expireTime);
             userToken.setLastUpdateTime(now);
             userToken.setToken(token);
             updateById(userToken);
-        }else {
+        } else {
             userToken = new UserToken();
             userToken.setExpireTime(expireTime);
             userToken.setLastUpdateTime(now);

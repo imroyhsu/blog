@@ -18,10 +18,10 @@ import java.util.Map;
  */
 public class MysqlGenerator {
     private static final String packagePrefix = "cn.royhsu.";      //包前缀
-    private static final String packageName="admin";                //包名
-    private static final String authorName="Ethan Liu";            //作者
-    private static final String table="sys_user_token";                 //table名
-    private static final String prefix="sys_";                    //table前缀
+    private static final String packageName = "admin";                //包名
+    private static final String authorName = "Ethan Liu";            //作者
+    private static final String table = "sys_user_token";                 //table名
+    private static final String prefix = "sys_";                    //table前缀
     private static final String path = "E:/blog/blog-common/";      //当前路径
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testjdbc?useUnicode=true&characterEncoding=utf8";
     private static final String USER_NAME = "root";
@@ -37,7 +37,7 @@ public class MysqlGenerator {
         AutoGenerator mpg = new AutoGenerator().setGlobalConfig(
                 // 全局配置
                 new GlobalConfig()
-                        .setOutputDir(path+"/src/main/java")//输出目录
+                        .setOutputDir(path + "/src/main/java")//输出目录
                         .setFileOverride(true)// 是否覆盖文件
                         .setActiveRecord(true)// 开启 activeRecord 模式
                         .setEnableCache(false)// XML 二级缓存
@@ -66,7 +66,7 @@ public class MysqlGenerator {
                         //.setDbColumnUnderline(true)//全局下划线命名
                         .setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
                         .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
-                        .setInclude(new String[] { table }) // 需要生成的表
+                        .setInclude(new String[]{table}) // 需要生成的表
                         .setRestControllerStyle(true) //是否生成RestController
                         //.setExclude(new String[]{"test"}) // 排除生成的表
                         // 自定义实体父类
@@ -111,7 +111,7 @@ public class MysqlGenerator {
                     // 自定义输出文件目录
                     @Override
                     public String outputFile(TableInfo tableInfo) {
-                        return path+"/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper.xml";
+                        return path + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper.xml";
                     }
                 }))
         ).setTemplate(

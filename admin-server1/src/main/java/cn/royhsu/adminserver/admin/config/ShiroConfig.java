@@ -18,7 +18,7 @@ import java.util.Map;
 public class ShiroConfig {
 
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //自定义oauth2过滤器，替代默认的过滤器
@@ -31,8 +31,8 @@ public class ShiroConfig {
         // 查看SQL监控（druid）
         filterChainMap.put("/druid/**", "anon");
         //主页和登录界面
-        filterChainMap.put("/","anon");
-        filterChainMap.put("/login","anon");
+        filterChainMap.put("/", "anon");
+        filterChainMap.put("/login", "anon");
         // swagger
         filterChainMap.put("/swagger-ui.html", "anon");
         filterChainMap.put("/swagger-resources", "anon");
@@ -42,9 +42,9 @@ public class ShiroConfig {
         filterChainMap.put("/captcha.jpg**", "anon");
         // 服务监控
         filterChainMap.put("/actuator/**", "anon");
-        filterChainMap.put("/logout","logout");
+        filterChainMap.put("/logout", "logout");
         //其他都交给OAuth2Filter处理
-        filterChainMap.put("/**","oauth2");
+        filterChainMap.put("/**", "oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
 //        shiroFilterFactoryBean.setLoginUrl("/login");
 //        shiroFilterFactoryBean.setSuccessUrl("/index");
@@ -53,7 +53,7 @@ public class ShiroConfig {
     }
 
     @Bean
-    public SecurityManager securityManager(){
+    public SecurityManager securityManager() {
         System.out.println("开始创建securityManager");//测试用
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(myRealm());
@@ -65,14 +65,14 @@ public class ShiroConfig {
     }
 
     @Bean
-    public OAuth2Realm myRealm(){
+    public OAuth2Realm myRealm() {
         System.out.println("开始创建realm");//测试用
         return new OAuth2Realm();
     }
 
     //添加AOP支持
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(){
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor() {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager());
         return authorizationAttributeSourceAdvisor;

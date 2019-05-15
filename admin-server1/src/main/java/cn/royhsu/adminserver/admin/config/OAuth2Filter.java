@@ -17,6 +17,7 @@ import java.io.IOException;
 
 /**
  * Oauth2过滤器
+ *
  * @author Ethan Liu
  * @since 2019/5/3 22:09
  */
@@ -25,7 +26,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
         // 获取请求token
         String token = getRequestToken((HttpServletRequest) request);
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             return null;
         }
         return new OAuth2Token(token);
@@ -39,13 +40,18 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        if ("OPTIONS".equals(httpRequest.getMethod())) {
+            // 如果是跨域中复杂请求的预检请求（OPTIONS类型），因为预检请求不带token, 所以不需要验证token
+            return true;
+        }
         // 获取请求token，如果token不存在，直接返回401
         String token = getRequestToken((HttpServletRequest) request);
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, "invalid token");
             String json = JSONObject.toJSONString(result);
-            httpResponse.getWriter().print(json)    ;
+            httpResponse.getWriter().print(json);
             return false;
         }
         return executeLogin(request, response);
@@ -70,9 +76,9 @@ public class OAuth2Filter extends AuthenticatingFilter {
     /**
      * 获取请求的token
      */
-    private String getRequestToken(HttpServletRequest httpServletRequest){
+    private String getRequestToken(HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("token");
-        if(StringUtils.isBlank("token")){
+        if (StringUtils.isBlank("token")) {
             token = httpServletRequest.getParameter("token");
         }
         return token;

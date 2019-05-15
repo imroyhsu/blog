@@ -1,13 +1,15 @@
-package cn.royhsu.core.vo;
+package cn.royhsu.blogsso.admin.vo;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 /**
  * @author Ethan Liu
  * @since 2019/5/5 10:54
  */
-@Data
+@Getter
+@Setter
 @Component
 public class LoginBean {
     private String account;

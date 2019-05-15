@@ -24,7 +24,7 @@ public interface UserMapper extends BaseMapper<User> {
 
 
     @Select("select id,username,password,salt,email,mobile,status,deptId,delFlag FROM sys_user")
-    IPage<User> findPage(IPage<User> page, @Param(Constants.WRAPPER)Wrapper<User> queryWrapper);
+    IPage<User> findPage(IPage<User> page, @Param(Constants.WRAPPER) Wrapper<User> queryWrapper);
 
     /**
      * 通过Id查询User,关联查询role和permission
@@ -32,16 +32,16 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select sys_user.id id,username,password,salt,email,mobile,status,deptId,sys_user.delFlag FROM sys_user where id = #{id} ")
 
     @Results({
-            @Result(id = true,property = "id", column = "id"),
+            @Result(id = true, property = "id", column = "id"),
             @Result(property = "username", column = "username"),
             @Result(property = "password", column = "password"),
             @Result(property = "salt", column = "salt"),
             @Result(property = "email", column = "email"),
             @Result(property = "mobile", column = "mobile"),
-            @Result(property = "status",column = "status"),
+            @Result(property = "status", column = "status"),
             @Result(property = "deptId", column = "deptId"),
-            @Result(property = "delFlag",column = "sys_user.delFlag"),
-            @Result(property = "roles",column ="id",javaType = List.class,
+            @Result(property = "delFlag", column = "sys_user.delFlag"),
+            @Result(property = "roles", column = "id", javaType = List.class,
                     many = @Many(select = "cn.royhsu.adminserver.admin.mapper.RoleMapper.findByUserId"))
     })
     User findById(@PathVariable(value = "userId") Serializable userId);
@@ -51,16 +51,16 @@ public interface UserMapper extends BaseMapper<User> {
      */
     @Select("select sys_user.id id,username,password,salt,email,mobile,status,deptId,sys_user.delFlag FROM sys_user where username = #{username}")
     @Results({
-            @Result(id = true,property = "id", column = "id"),
+            @Result(id = true, property = "id", column = "id"),
             @Result(property = "username", column = "username"),
             @Result(property = "password", column = "password"),
             @Result(property = "salt", column = "salt"),
             @Result(property = "email", column = "email"),
             @Result(property = "mobile", column = "mobile"),
-            @Result(property = "status",column = "status"),
+            @Result(property = "status", column = "status"),
             @Result(property = "deptId", column = "deptId"),
-            @Result(property = "delFlag",column = "sys_user.delFlag"),
-            @Result(property = "roles",column ="id",javaType = List.class,
+            @Result(property = "delFlag", column = "sys_user.delFlag"),
+            @Result(property = "roles", column = "id", javaType = List.class,
                     many = @Many(select = "cn.royhsu.adminserver.admin.mapper.RoleMapper.findByUserId"))
     })
     User findByName(@PathVariable(value = "username") Serializable username);

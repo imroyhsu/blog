@@ -18,7 +18,7 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
     service-url:
-#      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761}/eureka/
+      #      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761}/eureka/
       defaultZone: http://localhost:8761/eureka/
 
 #不知道为什么一直是down

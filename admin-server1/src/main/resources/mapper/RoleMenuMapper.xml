@@ -4,13 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cn.royhsu.adminserver.admin.entity.RoleMenu">
-        <id column="id" property="id" />
-        <result column="roleId" property="roleId" />
-        <result column="menuId" property="menuId" />
-        <result column="createBy" property="createBy" />
-        <result column="createTime" property="createTime" />
-        <result column="lastUpdateBy" property="lastUpdateBy" />
-        <result column="lastUpdateTime" property="lastUpdateTime" />
+        <id column="id" property="id"/>
+        <result column="roleId" property="roleId"/>
+        <result column="menuId" property="menuId"/>
+        <result column="createBy" property="createBy"/>
+        <result column="createTime" property="createTime"/>
+        <result column="lastUpdateBy" property="lastUpdateBy"/>
+        <result column="lastUpdateTime" property="lastUpdateTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

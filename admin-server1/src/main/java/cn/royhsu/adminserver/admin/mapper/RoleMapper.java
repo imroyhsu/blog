@@ -23,11 +23,11 @@ public interface RoleMapper extends BaseMapper<Role> {
     @Select("select sys_role.id id,name,remark,sys_role.delFlag FROM sys_role where sys_role.id in " +
             "(select sys_user_role.roleId from sys_user_role where userId = #{userId} )")
     @Results({
-            @Result(id = true,property = "id", column = "id"),
+            @Result(id = true, property = "id", column = "id"),
             @Result(property = "roleName", column = "name"),
             @Result(property = "remark", column = "remark"),
-            @Result(property = "delFlag",column = "sys_role.delFlag"),
-            @Result(property = "menus",column ="id",javaType = List.class,
+            @Result(property = "delFlag", column = "sys_role.delFlag"),
+            @Result(property = "menus", column = "id", javaType = List.class,
                     many = @Many(select = "cn.royhsu.adminserver.admin.mapper.MenuMapper.findByRoleId"))
     })
     List<Role> findByUserId(@PathVariable(value = "userId") Serializable userId);

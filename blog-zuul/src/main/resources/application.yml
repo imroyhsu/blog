@@ -10,7 +10,6 @@ spring:
     restart:
       enabled: true #是否支持热部署
 
-
 eureka:
   client:
     serviceUrl:
@@ -24,10 +23,20 @@ zuul:
     article:
       path: /article/**
       serviceId: article-server
+      sensitiveHeaders:
     admin:
       path: /admin/**
       serviceId: admin-server
+      sensitive-headers:
+    sso:
+      path: /login/**
+      serviceId: admin-sso
+      sensitive-headers:
   ignored-services: "*"
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
 
 management:
   endpoints:

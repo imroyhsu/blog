@@ -29,23 +29,22 @@ public class UserController {
     private UserServiceImpl userService;
 
     @RequestMapping("/getById/{id}")
-    public User getById(@PathVariable(value = "id") int id ){
+    public User getById(@PathVariable(value = "id") int id) {
         return userService.getById(id);
     }
 
     @RequestMapping("/getByName/{name}")
-    public User getByName(@PathVariable(value = "name") String name ){
+    public User getByName(@PathVariable(value = "name") String name) {
         return userService.getByName(name);
     }
 
     @RequestMapping("/getByPage")
-    public HttpResult getByPage(){
-        IPage<User> iPage = userService.page(new Page<>(1,5),new QueryWrapper<User>().orderByAsc("id"));
+    public HttpResult getByPage() {
+        IPage<User> iPage = userService.page(new Page<>(1, 5), new QueryWrapper<User>().orderByAsc("id"));
         System.out.println(iPage.getCurrent());
         System.out.println(iPage.getSize());
         return HttpResult.ok(iPage);
     }
-
 
 
 }

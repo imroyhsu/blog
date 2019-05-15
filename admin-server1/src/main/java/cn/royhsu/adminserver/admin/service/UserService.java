@@ -20,7 +20,9 @@ public interface UserService extends IService<User> {
     IPage<User> findPage(IPage<User> page, Wrapper<User> queryWrapper);
 
     User getById(Serializable id);
-    User getByName(String id);
+
+    User getByName(String name);
+
     Set<String> findPermissions(String username);
 
 

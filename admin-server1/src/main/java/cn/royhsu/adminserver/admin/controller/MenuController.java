@@ -26,17 +26,17 @@ public class MenuController {
     private MenuServiceImpl menuService;
 
     @RequestMapping("/getByUserId/{id}")
-    public List<Menu> getByUserId(@PathVariable(value = "id")Serializable userId){
-        return  menuService.findByUserId(userId);
+    public List<Menu> getByUserId(@PathVariable(value = "id") Serializable userId) {
+        return menuService.findByUserId(userId);
     }
 
     @RequestMapping("/getByUsername/{username}")
-    public List<Menu> getByUsername(@PathVariable(value = "username")String username){
-        return  menuService.findByUsername(username);
+    public List<Menu> getByUsername(@PathVariable(value = "username") String username) {
+        return menuService.findByUsername(username);
     }
 
     @RequestMapping("/getByRoleId/{id}")
-    public List<Menu> getByRoleId(@PathVariable(value = "id")Serializable roleId){
-        return  menuService.findByRoleId(roleId);
+    public List<Menu> getByRoleId(@PathVariable(value = "id") Serializable roleId) {
+        return menuService.findByRoleId(roleId);
     }
 }

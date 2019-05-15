@@ -4,23 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cn.royhsu.adminserver.admin.entity.Dict">
-        <id column="id" property="id" />
-        <result column="value" property="value" />
-        <result column="label" property="label" />
-        <result column="type" property="type" />
-        <result column="description" property="description" />
-        <result column="sort" property="sort" />
-        <result column="create_by" property="createBy" />
-        <result column="create_time" property="createTime" />
-        <result column="lastUpdateBy" property="lastUpdateBy" />
-        <result column="lastUpdateTime" property="lastUpdateTime" />
-        <result column="remarks" property="remarks" />
-        <result column="delFlag" property="delFlag" />
+        <id column="id" property="id"/>
+        <result column="value" property="value"/>
+        <result column="label" property="label"/>
+        <result column="type" property="type"/>
+        <result column="description" property="description"/>
+        <result column="sort" property="sort"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="lastUpdateBy" property="lastUpdateBy"/>
+        <result column="lastUpdateTime" property="lastUpdateTime"/>
+        <result column="remarks" property="remarks"/>
+        <result column="delFlag" property="delFlag"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, value, label, type, description, sort, create_by, create_time, lastUpdateBy, lastUpdateTime, remarks, delFlag
+        id, value, label, type, description, sort, create_by, create_time, lastUpdateBy, lastUpdateTime, remarks,
+        delFlag
     </sql>
 
 </mapper>

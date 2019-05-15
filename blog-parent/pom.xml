@@ -18,7 +18,7 @@
 
     <modules>
         <module>../admin-server1</module>
-        <module>../admin-server2</module>
+        <module>../admin-sso</module>
         <module>../article-server</module>
         <module>../blog-zuul</module>
         <module>../blog-eureka</module>
@@ -37,12 +37,12 @@
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
 
-        <!--shiro-->
+        <!-- Shiro -->
         <shiro.version>1.4.0</shiro.version>
 
         <!-- DAO -->
         <mysql.verison>5.1.47</mysql.verison>
-        <!--mybatis-plus-->
+        <!-- mybatis-plus -->
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <fremaker.version>2.3.28</fremaker.version>
 
@@ -53,7 +53,7 @@
         <!-- lombok -->
         <lombok.version>1.18.6</lombok.version>
 
-        <!-- admin监控-->
+        <!-- admin监控 -->
         <admin-starter-server.version>2.1.4</admin-starter-server.version>
 
         <!-- commons -->
@@ -61,18 +61,21 @@
         <commons.fileupload.version>1.4</commons.fileupload.version>
         <commons.io.version>2.6</commons.io.version>
         <commons.codec.version>1.11</commons.codec.version>
+        <commons.pool.version>2.6.2</commons.pool.version>
 
-        <!-- swagger-->
+        <!-- swagger -->
         <swagger.version>2.8.0</swagger.version>
 
         <kaptcha.version>0.0.9</kaptcha.version>
 
+        <!-- redis -->
+        <redis.version>2.1.5.RELEASE</redis.version>
 
+        <!-- hystrix -->
+        <hystrix.version>2.1.0.RELEASE</hystrix.version>
 
 
     </properties>
-
-
 
     <dependencies>
         <!--<dependency>-->
@@ -193,6 +196,12 @@
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons.pool.version}</version>
+            </dependency>
+
 
             <!-- swagger -->
             <dependency>
@@ -212,6 +221,26 @@
                 <artifactId>kaptcha</artifactId>
                 <version>${kaptcha.version}</version>
             </dependency>
+
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-data-redis</artifactId>
+                <version>${redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- hystrix -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${hystrix.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

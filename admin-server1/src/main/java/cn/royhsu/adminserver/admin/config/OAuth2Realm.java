@@ -17,6 +17,7 @@ import java.util.Set;
 
 /**
  * 认证Realm实现
+ *
  * @author Ethan Liu
  * @since 2019/5/3 23:22
  */
@@ -48,7 +49,6 @@ public class OAuth2Realm extends AuthorizingRealm {
     }
 
 
-
     /**
      * 认证(登录时调用)
      */
@@ -58,18 +58,18 @@ public class OAuth2Realm extends AuthorizingRealm {
         String aToken = (String) token.getPrincipal();
         // 根据accessToken，查询用户token信息
         UserToken userToken = userTokenService.getOne(new QueryWrapper<UserToken>().
-                eq(UserToken.Fields.token,aToken));
-        if(userToken == null || userToken.getExpireTime().getTime() < System.currentTimeMillis()){
+                eq(UserToken.Fields.token, aToken));
+        if (userToken == null || userToken.getExpireTime().getTime() < System.currentTimeMillis()) {
             // token已经失效
             throw new IncorrectCredentialsException("token失效，请重新登录");
         }
         // 查询用户信息，并验证是否被锁定
         User user = userService.getById(userToken.getUserId());
-        if(user.getStatus() == 0){
+        if (user.getStatus() == 0) {
             throw new LockedAccountException("账号已被锁定，请联系管理员");
         }
 
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user,aToken,getName());
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, aToken, getName());
         return authenticationInfo;
     }
 }

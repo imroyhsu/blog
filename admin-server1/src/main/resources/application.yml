@@ -1,6 +1,8 @@
 server:
   port: 8762
 spring:
+  application:
+    name: admin-server
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     #2.1版本后，添加druid-spring-boot-starter依赖，可以直接联想出相关配置，且省略配置类
@@ -51,8 +53,23 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
-  application:
-    name: admin-server
+  # redis配置
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 20000
+      #cluster:
+      #nodes: 192.168.211.134:7000,192.168.211.134:7001
+      #-
+    #max-redirects:
+    lettuce:
+      pool:
+        max-active: 600
+        max-idle: 300
+        max-wait: 1000ms
+
   devtools:
     livereload:
       enabled: true #是否支持livereload

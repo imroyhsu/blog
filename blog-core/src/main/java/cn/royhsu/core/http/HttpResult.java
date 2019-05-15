@@ -2,6 +2,7 @@ package cn.royhsu.core.http;
 
 /**
  * HTTP结果封装
+ *
  * @author Ethan Liu
  * @since 2019/4/30 11:09
  */

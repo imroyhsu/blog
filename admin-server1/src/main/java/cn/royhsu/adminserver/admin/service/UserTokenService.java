@@ -15,5 +15,6 @@ import java.io.Serializable;
  */
 public interface UserTokenService extends IService<UserToken> {
     UserToken createToken(long id);
+
     UserToken findByUserId(Serializable userId);
 }

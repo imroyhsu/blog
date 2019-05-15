@@ -52,8 +52,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Set<String> findPermissions(String username) {
         Set<String> perms = new HashSet<>();
         List<Menu> menus = menuMapper.findByUsername(username);
-        for(Menu menu:menus){
-            if(menu.getPerms()!=null && !"".equals(menu.getPerms())){
+        for (Menu menu : menus) {
+            if (menu.getPerms() != null && !"".equals(menu.getPerms())) {
                 perms.add(menu.getPerms());
             }
         }

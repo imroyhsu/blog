@@ -4,6 +4,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
  * 自定义token对象
+ *
  * @author Ethan Liu
  * @since 2019/5/3 23:16
  */
@@ -13,7 +14,7 @@ public class OAuth2Token implements AuthenticationToken {
 
     private String token;
 
-    public OAuth2Token(String token){
+    public OAuth2Token(String token) {
         this.token = token;
     }
 

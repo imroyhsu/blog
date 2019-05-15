@@ -12,7 +12,7 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 
 
-public class MyRealm extends AuthorizingRealm{
+public class MyRealm extends AuthorizingRealm {
 
     //调用服务
     @Resource
@@ -23,7 +23,7 @@ public class MyRealm extends AuthorizingRealm{
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         System.out.println("开始权限配置");
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo();
-        User user = (User)principalCollection.getPrimaryPrincipal();
+        User user = (User) principalCollection.getPrimaryPrincipal();
         return null;
     }
 
@@ -33,14 +33,14 @@ public class MyRealm extends AuthorizingRealm{
         System.out.println("开始身份认证");
 
         String username = (String) token.getPrincipal();
-        String password = new String((char[])token.getCredentials());
+        String password = new String((char[]) token.getCredentials());
         User user = userService.getOne(new QueryWrapper<User>()
-                .eq(User.Fields.username,username));//调用mybatis-plus的条件查询
+                .eq(User.Fields.username, username));//调用mybatis-plus的条件查询
         System.out.println("User" + user);//测试
-        if (user == null){
+        if (user == null) {
             return null;
         }
-        if(!user.getPassword().equals(password)){
+        if (!user.getPassword().equals(password)) {
             throw new IncorrectCredentialsException("密码错误");
         }
         //若成功，则返回一个封装了信息的AuthenticationInfo

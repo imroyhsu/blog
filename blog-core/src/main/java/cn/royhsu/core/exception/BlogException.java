@@ -9,7 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BlogException extends RuntimeException{
+public class BlogException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     private String msg;
