@@ -23,7 +23,7 @@ public interface UserService extends IService<User> {
 
     User getByName(String name);
 
-    Set<String> findPermissions(String username);
+    Set<String> findPermissionsByName(String username);
 
 
 }

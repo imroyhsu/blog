@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../admin-consumer/admin-consumer.iml" filepath="$PROJECT_DIR$/../admin-consumer/admin-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../admin-server1/admin-server1.iml" filepath="$PROJECT_DIR$/../admin-server1/admin-server1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../admin-server2/admin-server2.iml" filepath="$PROJECT_DIR$/../admin-server2/admin-server2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../admin-sso/admin-sso.iml" filepath="$PROJECT_DIR$/../admin-sso/admin-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../article-server/article-server.iml" filepath="$PROJECT_DIR$/../article-server/article-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../blog-admin/blog-admin.iml" filepath="$PROJECT_DIR$/../blog-admin/blog-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../blog-common/blog-common.iml" filepath="$PROJECT_DIR$/../blog-common/blog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../blog-core/blog-core.iml" filepath="$PROJECT_DIR$/../blog-core/blog-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../blog-eureka/blog-eureka.iml" filepath="$PROJECT_DIR$/../blog-eureka/blog-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-parent.iml" filepath="$PROJECT_DIR$/blog-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../blog-zuul/blog-zuul.iml" filepath="$PROJECT_DIR$/../blog-zuul/blog-zuul.iml" />
+    </modules>
+  </component>
+</project>

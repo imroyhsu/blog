@@ -25,6 +25,7 @@ public class UserTokenServiceImpl extends ServiceImpl<UserTokenMapper, UserToken
     //一天后过期
 
     private static Logger logger = LoggerFactory.getLogger(UserTokenServiceImpl.class);
+    private final static int EXPIRE = 3600 * 24;
 
     @Resource
     private RedisServiceImpl redisService;

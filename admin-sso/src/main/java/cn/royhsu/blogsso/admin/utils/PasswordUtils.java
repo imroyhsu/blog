@@ -33,7 +33,6 @@ public class PasswordUtils {
     public static String encrypt(String password, String salt) {
         return new Sha256Hash(password, salt).toHex();
     }
-
     /**
      * 获取加密盐
      *

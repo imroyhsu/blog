@@ -49,7 +49,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Set<String> findPermissions(String username) {
+    public Set<String> findPermissionsByName(String username) {
         Set<String> perms = new HashSet<>();
         List<Menu> menus = menuMapper.findByUsername(username);
         for (Menu menu : menus) {

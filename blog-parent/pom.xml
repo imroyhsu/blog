@@ -19,6 +19,7 @@
     <modules>
         <module>../admin-server1</module>
         <module>../admin-server2</module>
+        <module>../admin-consumer</module>
         <module>../admin-sso</module>
         <module>../article-server</module>
         <module>../blog-zuul</module>
@@ -35,9 +36,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!--spring boot & cloud-->
-        <spring-cloud.version>2.1.1.RELEASE</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
 
+        <!-- netflix -->
+        <netflix.version>2.1.1.RELEASE</netflix.version>
         <!-- Shiro -->
         <shiro.version>1.4.0</shiro.version>
 
@@ -72,8 +75,7 @@
         <!-- redis -->
         <redis.version>2.1.5.RELEASE</redis.version>
 
-        <!-- feign -->
-        <hystrix.version>2.1.1.RELEASE</hystrix.version>
+
 
 
     </properties>
@@ -106,6 +108,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -113,6 +117,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- spring-cloud-netflix-dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
             <!-- DAO -->
             <!--这里mysql.version对应了自己设定的5.7版本和boot自带的8.0版本，仔细选择-->
             <dependency>
@@ -234,14 +249,6 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
-
-            <!-- hystrix -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-                <version>${hystrix.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 

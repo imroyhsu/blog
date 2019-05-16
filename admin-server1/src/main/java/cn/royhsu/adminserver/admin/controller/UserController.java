@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Set;
 
 /**
  * <p>
@@ -46,5 +47,8 @@ public class UserController {
         return HttpResult.ok(iPage);
     }
 
-
+    @RequestMapping("/getPermissionsByName/{name}")
+    public Set<String> findPermissionsByName(@PathVariable("name") String username){
+        return userService.findPermissionsByName(username);
+    }
 }

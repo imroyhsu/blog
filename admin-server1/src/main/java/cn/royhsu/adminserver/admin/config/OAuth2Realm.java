@@ -42,7 +42,7 @@ public class OAuth2Realm extends AuthorizingRealm {
         System.out.println("开始权限配置");
         User user = (User) principals.getPrimaryPrincipal();
         // 用户权限列表，根据用户拥有的权限标识与如 @permission标注的接口对比，决定是否可以调用接口
-        Set<String> permSet = userService.findPermissions(user.getUsername());
+        Set<String> permSet = userService.findPermissionsByName(user.getUsername());
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         authorizationInfo.setStringPermissions(permSet);
         return authorizationInfo;

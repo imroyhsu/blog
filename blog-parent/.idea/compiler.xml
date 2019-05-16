@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blog-core" />
+        <module name="article-server" />
+        <module name="admin-consumer" />
+        <module name="blog-zuul" />
+        <module name="admin-sso" />
+        <module name="blog-admin" />
+        <module name="blog-common" />
+        <module name="admin-server1" />
+        <module name="admin-server2" />
+        <module name="blog-eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin-consumer" target="1.8" />
+      <module name="admin-server1" target="1.8" />
+      <module name="admin-server2" target="1.8" />
+      <module name="admin-sso" target="1.8" />
+      <module name="article-server" target="1.8" />
+      <module name="blog-admin" target="1.8" />
+      <module name="blog-common" target="1.8" />
+      <module name="blog-core" target="1.8" />
+      <module name="blog-eureka" target="1.8" />
+      <module name="blog-parent" target="1.8" />
+      <module name="blog-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin-consumer" options="-parameters" />
+      <module name="admin-server1" options="-parameters" />
+      <module name="admin-server2" options="-parameters" />
+      <module name="admin-sso" options="-parameters" />
+      <module name="article-server" options="-parameters" />
+      <module name="blog-admin" options="-parameters" />
+      <module name="blog-common" options="-parameters" />
+      <module name="blog-core" options="-parameters" />
+      <module name="blog-eureka" options="-parameters" />
+      <module name="blog-zuul" options="-parameters" />
+    </option>
+  </component>
+</project>
