@@ -1,4 +1,4 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 角色与菜单对应关系
+ * 用户与角色对应关系
  * </p>
  *
  * @author Ethan Liu
@@ -23,8 +23,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_role_menu")
-public class RoleMenu extends Model<RoleMenu> {
+@TableName("sys_user_role")
+public class UserRole extends Model<UserRole> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,16 +35,16 @@ public class RoleMenu extends Model<RoleMenu> {
     private Long id;
 
     /**
+     * 用户ID
+     */
+    @TableField("userId")
+    private Long userId;
+
+    /**
      * 角色ID
      */
     @TableField("roleId")
     private Long roleId;
-
-    /**
-     * 菜单ID
-     */
-    @TableField("menuId")
-    private Long menuId;
 
     /**
      * 创建人

@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.mapper;
 
-import cn.royhsu.adminserver.admin.entity.Dict;
+import cn.royhsu.common.admin.entity.Dict;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

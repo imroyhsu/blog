@@ -58,7 +58,6 @@ spring:
     database: 0
     host: 127.0.0.1
     port: 6379
-    password:
     timeout: 20000
       #cluster:
       #nodes: 192.168.211.134:7000,192.168.211.134:7001
@@ -69,7 +68,6 @@ spring:
         max-active: 600
         max-idle: 300
         max-wait: 1000ms
-
   devtools:
     livereload:
       enabled: true #是否支持livereload

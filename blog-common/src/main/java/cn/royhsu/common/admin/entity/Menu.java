@@ -1,4 +1,4 @@
-package cn.royhsu.adminconsumer.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -11,10 +11,11 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
- * 用户与角色对应关系
+ * 菜单管理
  * </p>
  *
  * @author Ethan Liu
@@ -23,8 +24,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_user_role")
-public class UserRole extends Model<UserRole> {
+@TableName("sys_menu")
+public class Menu extends Model<Menu> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,16 +36,55 @@ public class UserRole extends Model<UserRole> {
     private Long id;
 
     /**
-     * 用户ID
+     * 菜单名称
      */
-    @TableField("userId")
-    private Long userId;
+    @TableField("menuName")
+    private String menuName;
 
     /**
-     * 角色ID
+     * 父菜单ID，一级菜单为0
      */
-    @TableField("roleId")
-    private Long roleId;
+    @TableField("parentId")
+    private Long parentId;
+
+    /**
+     * 菜单URL
+     */
+    private String url;
+
+    /**
+     * 授权(多个用逗号分隔，如：user:view,user:create)
+     */
+    private String perms;
+
+    /**
+     * 类型   0：目录   1：菜单   2：按钮
+     */
+    private Integer type;
+
+    /**
+     * 菜单图标
+     */
+    private String icon;
+
+    /**
+     * 排序
+     */
+    @TableField("orderNum")
+    private Integer orderNum;
+
+    // 非数据库字段
+    private String parentName;
+    // 非数据库字段
+    private Integer level;
+    // 非数据库字段
+    private List<Menu> children;
+
+    /**
+     * 是否删除  -1：已删除  0：正常
+     */
+    @TableField("delFlag")
+    private Integer delFlag;
 
     /**
      * 创建人

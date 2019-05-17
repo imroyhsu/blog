@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.RoleDept;
 import cn.royhsu.adminserver.admin.mapper.RoleDeptMapper;
 import cn.royhsu.adminserver.admin.service.RoleDeptService;
+import cn.royhsu.common.admin.entity.RoleDept;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
 package cn.royhsu.adminserver.admin.config;
 
-import cn.royhsu.adminserver.admin.entity.User;
-import cn.royhsu.adminserver.admin.entity.UserToken;
-import cn.royhsu.adminserver.admin.service.UserService;
-import cn.royhsu.adminserver.admin.service.UserTokenService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import cn.royhsu.adminserver.admin.service.impl.UserServiceImpl;
+import cn.royhsu.adminserver.admin.service.impl.UserTokenServiceImpl;
+import cn.royhsu.common.admin.entity.User;
+import cn.royhsu.common.admin.entity.UserToken;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -25,9 +25,10 @@ import java.util.Set;
 public class OAuth2Realm extends AuthorizingRealm {
 
     @Resource
-    private UserTokenService userTokenService;
+    private UserTokenServiceImpl userTokenService;
     @Resource
-    private UserService userService;
+    private UserServiceImpl userService;
+
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -57,10 +58,13 @@ public class OAuth2Realm extends AuthorizingRealm {
         System.out.println("开始身份认证");
         String aToken = (String) token.getPrincipal();
         // 根据accessToken，查询用户token信息
-        UserToken userToken = userTokenService.getOne(new QueryWrapper<UserToken>().
-                eq(UserToken.Fields.token, aToken));
+        System.out.println("provider---sessionid:" + SecurityUtils.getSubject().getSession().getId());
+        UserToken userToken = userTokenService.findByKey(SecurityUtils.getSubject().getSession().getId());
         if (userToken == null || userToken.getExpireTime().getTime() < System.currentTimeMillis()) {
             // token已经失效
+            throw new IncorrectCredentialsException("token失效，请重新登录");
+        }
+        if(!userToken.getToken().equals(aToken)){
             throw new IncorrectCredentialsException("token失效，请重新登录");
         }
         // 查询用户信息，并验证是否被锁定

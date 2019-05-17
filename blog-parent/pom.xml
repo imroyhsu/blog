@@ -73,7 +73,7 @@
         <kaptcha.version>0.0.9</kaptcha.version>
 
         <!-- redis -->
-        <redis.version>2.1.5.RELEASE</redis.version>
+        <redis.version>2.1.6.RELEASE</redis.version>
 
 
 

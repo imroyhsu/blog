@@ -58,18 +58,16 @@ spring:
     database: 0
     host: 127.0.0.1
     port: 6379
-    password:
     timeout: 20000
       #cluster:
       #nodes: 192.168.211.134:7000,192.168.211.134:7001
-      #-
+    #-
     #max-redirects:
     lettuce:
       pool:
         max-active: 600
         max-idle: 300
         max-wait: 1000ms
-
   devtools:
     livereload:
       enabled: true #是否支持livereload
@@ -109,7 +107,7 @@ logging:
     #TARCE < DEBUG < INFO < WARN < ERROR < FATAL ，且级别是逐渐提供，如果日志级别设置为INFO，则意味级别低的TRACE和DEBUG级别的日志都看不到。
     root: info
   # 指定输出日志的文件名，默认输出至当前项目目录下
-  file: /Users/royhsu/workspace/logs/blog-logs/admin-server2.log
+  file: /Users/royhsu/workspace/logs/blog-logs/admin-server1.log
   pattern:
     console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
     file: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"

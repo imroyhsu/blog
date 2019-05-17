@@ -1,6 +1,6 @@
 package cn.royhsu.blogsso.admin.mapper;
 
-import cn.royhsu.blogsso.admin.entity.Log;
+import cn.royhsu.common.admin.entity.Log;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

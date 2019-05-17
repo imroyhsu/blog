@@ -2,7 +2,7 @@ package cn.royhsu.adminconsumer.admin.controller;
 
 
 import cn.royhsu.adminconsumer.admin.service.RoleService;
-import cn.royhsu.adminconsumer.admin.entity.Role;
+import cn.royhsu.common.admin.entity.Role;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

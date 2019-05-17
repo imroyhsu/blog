@@ -1,6 +1,6 @@
 package cn.royhsu.blogsso.admin.service;
 
-import cn.royhsu.blogsso.admin.entity.User;
+import cn.royhsu.common.admin.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

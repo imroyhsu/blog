@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.service;
 
-import cn.royhsu.adminserver.admin.entity.Log;
+import cn.royhsu.common.admin.entity.Log;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

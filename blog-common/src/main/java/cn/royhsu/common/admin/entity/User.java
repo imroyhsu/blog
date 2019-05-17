@@ -1,4 +1,4 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,14 +8,16 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import lombok.experimental.FieldNameConstants;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * <p>
- * 角色
+ * 用户
  * </p>
  *
  * @author Ethan Liu
@@ -24,10 +26,13 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_role")
-public class Role extends Model<Role> {
+@TableName("sys_user")
+@FieldNameConstants
+public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
+
+    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 编号
@@ -36,24 +41,46 @@ public class Role extends Model<Role> {
     private Long id;
 
     /**
-     * 角色名称
+     * 用户名
      */
-    @TableField("roleName")
-    private String roleName;
+    private String username;
 
     /**
-     * 备注
+     * 密码
      */
-    private String remark;
+    private String password;
+
+    /**
+     * 盐
+     */
+    private String salt;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 状态  0：禁用   1：正常
+     */
+    private Integer status;
+
+    /**
+     * 机构ID
+     */
+    @TableField("deptId")
+    private Long deptId;
 
     /**
      * 是否删除  -1：已删除  0：正常
      */
     @TableField("delFlag")
     private Integer delFlag;
-
-    //非数据库字段
-    private List<Menu> menus;
 
     /**
      * 创建人
@@ -79,6 +106,8 @@ public class Role extends Model<Role> {
     @TableField("lastUpdateTime")
     private Date lastUpdateTime;
 
+    //非数据库字段
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     protected Serializable pkVal() {

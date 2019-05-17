@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.UserRole;
 import cn.royhsu.adminserver.admin.mapper.UserRoleMapper;
 import cn.royhsu.adminserver.admin.service.UserRoleService;
+import cn.royhsu.common.admin.entity.UserRole;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

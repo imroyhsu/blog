@@ -1,6 +1,6 @@
 package cn.royhsu.adminconsumer.admin.service;
 
-import cn.royhsu.adminconsumer.admin.entity.Menu;
+import cn.royhsu.common.admin.entity.Menu;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

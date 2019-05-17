@@ -1,4 +1,4 @@
-package cn.royhsu.adminconsumer.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,12 +10,12 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
- * 字典表
+ * 角色
  * </p>
  *
  * @author Ethan Liu
@@ -24,8 +24,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_dict")
-public class Dict extends Model<Dict> {
+@TableName("sys_role")
+public class Role extends Model<Role> {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,40 +36,24 @@ public class Dict extends Model<Dict> {
     private Long id;
 
     /**
-     * 数据值
+     * 角色名称
      */
-    private String value;
+    @TableField("roleName")
+    private String roleName;
 
     /**
-     * 标签名
+     * 备注
      */
-    private String label;
-
-    /**
-     * 类型
-     */
-    private String type;
-
-    /**
-     * 描述
-     */
-    private String description;
-
-    /**
-     * 排序（升序）
-     */
-    private BigDecimal sort;
-
-    /**
-     * 备注信息
-     */
-    private String remarks;
+    private String remark;
 
     /**
      * 是否删除  -1：已删除  0：正常
      */
     @TableField("delFlag")
     private Integer delFlag;
+
+    //非数据库字段
+    private List<Menu> menus;
 
     /**
      * 创建人

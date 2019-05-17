@@ -7,10 +7,14 @@ package cn.royhsu.core.http;
  * @since 2019/4/30 11:09
  */
 
-public class HttpResult {
+public class HttpResult<T> {
     private int code = 200;
     private String msg;
     private Object data;
+
+    public HttpResult() {
+
+    }
 
     public static HttpResult error() {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");

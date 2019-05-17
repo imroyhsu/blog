@@ -1,4 +1,4 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -11,28 +11,24 @@ import lombok.experimental.Accessors;
 import lombok.experimental.FieldNameConstants;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * <p>
- * 用户
+ * 用户Token
  * </p>
  *
  * @author Ethan Liu
- * @since 2019-04-28
+ * @since 2019-05-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_user")
+@TableName("sys_user_token")
 @FieldNameConstants
-public class User extends Model<User> {
+public class UserToken extends Model<UserToken> {
 
     private static final long serialVersionUID = 1L;
-
-    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 编号
@@ -40,47 +36,19 @@ public class User extends Model<User> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    /**
-     * 用户名
-     */
-    private String username;
+    @TableField("userId")
+    private Long userId;
 
     /**
-     * 密码
+     * token
      */
-    private String password;
+    private String token;
 
     /**
-     * 盐
+     * 过期时间
      */
-    private String salt;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 状态  0：禁用   1：正常
-     */
-    private Integer status;
-
-    /**
-     * 机构ID
-     */
-    @TableField("deptId")
-    private Long deptId;
-
-    /**
-     * 是否删除  -1：已删除  0：正常
-     */
-    @TableField("delFlag")
-    private Integer delFlag;
+    @TableField("expireTime")
+    private Date expireTime;
 
     /**
      * 创建人
@@ -106,8 +74,6 @@ public class User extends Model<User> {
     @TableField("lastUpdateTime")
     private Date lastUpdateTime;
 
-    //非数据库字段
-    private List<Role> roles = new ArrayList<>();
 
     @Override
     protected Serializable pkVal() {

@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.mapper;
 
-import cn.royhsu.adminserver.admin.entity.Menu;
+import cn.royhsu.common.admin.entity.Menu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

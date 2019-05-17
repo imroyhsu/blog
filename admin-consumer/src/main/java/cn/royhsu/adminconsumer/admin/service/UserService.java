@@ -1,7 +1,7 @@
 package cn.royhsu.adminconsumer.admin.service;
 
-import cn.royhsu.adminconsumer.admin.entity.Page;
-import cn.royhsu.adminconsumer.admin.entity.User;
+import cn.royhsu.common.admin.entity.Page;
+import cn.royhsu.common.admin.entity.User;
 import cn.royhsu.core.http.HttpResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,4 +34,9 @@ public interface UserService  {
 
     @RequestMapping(value = "/user/getPermissionsByName/{name}",method = RequestMethod.GET)
     Set<String> findPermissions(@PathVariable("name") String username);
+
+    @RequestMapping(value = "/user/hello",method = RequestMethod.GET)
+    String hello();
+
+
 }

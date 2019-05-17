@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.Menu;
 import cn.royhsu.adminserver.admin.mapper.MenuMapper;
 import cn.royhsu.adminserver.admin.service.MenuService;
+import cn.royhsu.common.admin.entity.Menu;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package cn.royhsu.blogsso.admin.config;
+package cn.royhsu.adminserver.admin.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

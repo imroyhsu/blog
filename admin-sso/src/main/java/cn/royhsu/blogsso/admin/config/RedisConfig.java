@@ -21,6 +21,11 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisConfig.class);
 
+    /**
+     * 处理redis的乱码问题
+     * @param connectionFactory
+     * @return
+     */
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory connectionFactory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();

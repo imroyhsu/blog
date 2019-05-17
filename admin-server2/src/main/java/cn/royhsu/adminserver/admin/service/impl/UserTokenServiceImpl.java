@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.UserToken;
 import cn.royhsu.adminserver.admin.mapper.UserTokenMapper;
 import cn.royhsu.adminserver.admin.service.UserTokenService;
+import cn.royhsu.common.admin.entity.UserToken;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

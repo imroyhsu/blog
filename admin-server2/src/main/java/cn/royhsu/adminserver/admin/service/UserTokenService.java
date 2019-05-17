@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.service;
 
-import cn.royhsu.adminserver.admin.entity.UserToken;
+import cn.royhsu.common.admin.entity.UserToken;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.Serializable;

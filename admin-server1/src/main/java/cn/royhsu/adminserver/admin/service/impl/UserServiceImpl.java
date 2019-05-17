@@ -1,10 +1,11 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.Menu;
-import cn.royhsu.adminserver.admin.entity.User;
+
 import cn.royhsu.adminserver.admin.mapper.MenuMapper;
 import cn.royhsu.adminserver.admin.mapper.UserMapper;
 import cn.royhsu.adminserver.admin.service.UserService;
+import cn.royhsu.common.admin.entity.Menu;
+import cn.royhsu.common.admin.entity.User;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

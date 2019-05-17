@@ -1,6 +1,6 @@
 package cn.royhsu.blogsso.admin.mapper;
 
-import cn.royhsu.blogsso.admin.entity.User;
+import cn.royhsu.common.admin.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

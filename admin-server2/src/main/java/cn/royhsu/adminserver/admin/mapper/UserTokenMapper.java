@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.mapper;
 
-import cn.royhsu.adminserver.admin.entity.UserToken;
+import cn.royhsu.common.admin.entity.UserToken;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,6 +1,6 @@
 package cn.royhsu.adminserver.admin.mapper;
 
-import cn.royhsu.adminserver.admin.entity.RoleDept;
+import cn.royhsu.common.admin.entity.RoleDept;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

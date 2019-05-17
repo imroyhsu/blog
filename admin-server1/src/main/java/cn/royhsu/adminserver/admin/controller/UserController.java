@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.controller;
 
 
-import cn.royhsu.adminserver.admin.entity.User;
 import cn.royhsu.adminserver.admin.service.impl.UserServiceImpl;
+import cn.royhsu.common.admin.entity.User;
 import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -32,6 +32,11 @@ public class UserController {
     @RequestMapping("/getById/{id}")
     public User getById(@PathVariable(value = "id") int id) {
         return userService.getById(id);
+    }
+
+    @RequestMapping("/hello")
+    public String hello(){
+        return "hello";
     }
 
     @RequestMapping("/getByName/{name}")

@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.controller;
 
 
-import cn.royhsu.adminserver.admin.entity.Menu;
 import cn.royhsu.adminserver.admin.service.impl.MenuServiceImpl;
+import cn.royhsu.common.admin.entity.Menu;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

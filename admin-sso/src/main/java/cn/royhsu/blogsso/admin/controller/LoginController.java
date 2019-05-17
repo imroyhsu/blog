@@ -1,11 +1,11 @@
 package cn.royhsu.blogsso.admin.controller;
 
-import cn.royhsu.blogsso.admin.entity.User;
-import cn.royhsu.blogsso.admin.entity.UserToken;
 import cn.royhsu.blogsso.admin.service.impl.UserServiceImpl;
 import cn.royhsu.blogsso.admin.service.impl.UserTokenServiceImpl;
 import cn.royhsu.blogsso.admin.utils.PasswordUtils;
 import cn.royhsu.blogsso.admin.vo.LoginBean;
+import cn.royhsu.common.admin.entity.User;
+import cn.royhsu.common.admin.entity.UserToken;
 import cn.royhsu.common.utils.IOUtils;
 import cn.royhsu.core.http.HttpResult;
 import com.google.code.kaptcha.Constants;
@@ -56,6 +56,7 @@ public class LoginController {
         BufferedImage image = producer.createImage(text);
 
         // 保存到验证码到 session
+
         request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
 
         ServletOutputStream out = response.getOutputStream();

@@ -1,9 +1,9 @@
 package cn.royhsu.blogsso.admin.service.impl;
 
-import cn.royhsu.blogsso.admin.entity.UserToken;
 import cn.royhsu.blogsso.admin.mapper.UserTokenMapper;
 import cn.royhsu.blogsso.admin.service.UserTokenService;
 import cn.royhsu.blogsso.admin.utils.TokenGenerator;
+import cn.royhsu.common.admin.entity.UserToken;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

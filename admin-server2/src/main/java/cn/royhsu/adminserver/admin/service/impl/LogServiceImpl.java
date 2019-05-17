@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.Log;
 import cn.royhsu.adminserver.admin.mapper.LogMapper;
 import cn.royhsu.adminserver.admin.service.LogService;
+import cn.royhsu.common.admin.entity.Log;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

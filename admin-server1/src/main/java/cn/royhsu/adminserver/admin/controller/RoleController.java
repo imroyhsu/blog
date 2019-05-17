@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.controller;
 
 
-import cn.royhsu.adminserver.admin.entity.Role;
 import cn.royhsu.adminserver.admin.service.impl.RoleServiceImpl;
+import cn.royhsu.common.admin.entity.Role;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

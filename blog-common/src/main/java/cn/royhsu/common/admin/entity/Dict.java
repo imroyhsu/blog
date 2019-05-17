@@ -1,4 +1,4 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,12 +10,12 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
  * <p>
- * 机构管理
+ * 字典表
  * </p>
  *
  * @author Ethan Liu
@@ -24,8 +24,8 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_dept")
-public class Dept extends Model<Dept> {
+@TableName("sys_dict")
+public class Dict extends Model<Dict> {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,29 +36,34 @@ public class Dept extends Model<Dept> {
     private Long id;
 
     /**
-     * 机构名称
+     * 数据值
      */
-    @TableField("deptName")
-    private String deptName;
+    private String value;
 
     /**
-     * 上级机构ID，一级机构为0
+     * 标签名
      */
-    @TableField("parentId")
-    private Long parentId;
+    private String label;
 
     /**
-     * 排序
+     * 类型
      */
-    @TableField("orderNum")
-    private Integer orderNum;
+    private String type;
 
-    private List<Dept> children;
+    /**
+     * 描述
+     */
+    private String description;
 
-    // 非数据库字段
-    private String parentName;
-    // 非数据库字段
-    private Integer level;
+    /**
+     * 排序（升序）
+     */
+    private BigDecimal sort;
+
+    /**
+     * 备注信息
+     */
+    private String remarks;
 
     /**
      * 是否删除  -1：已删除  0：正常

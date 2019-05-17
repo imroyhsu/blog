@@ -1,8 +1,8 @@
 package cn.royhsu.adminserver.admin.service.impl;
 
-import cn.royhsu.adminserver.admin.entity.Dict;
 import cn.royhsu.adminserver.admin.mapper.DictMapper;
 import cn.royhsu.adminserver.admin.service.DictService;
+import cn.royhsu.common.admin.entity.Dict;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

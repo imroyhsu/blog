@@ -1,4 +1,4 @@
-package cn.royhsu.adminserver.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 角色与菜单对应关系
+ * 系统日志
  * </p>
  *
  * @author Ethan Liu
@@ -23,8 +23,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_role_menu")
-public class RoleMenu extends Model<RoleMenu> {
+@TableName("sys_log")
+public class Log extends Model<Log> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,16 +35,35 @@ public class RoleMenu extends Model<RoleMenu> {
     private Long id;
 
     /**
-     * 角色ID
+     * 用户名
      */
-    @TableField("roleId")
-    private Long roleId;
+    @TableField("userName")
+    private String userName;
 
     /**
-     * 菜单ID
+     * 用户操作
      */
-    @TableField("menuId")
-    private Long menuId;
+    private String operation;
+
+    /**
+     * 请求方法
+     */
+    private String method;
+
+    /**
+     * 请求参数
+     */
+    private String params;
+
+    /**
+     * 执行时长(毫秒)
+     */
+    private Long time;
+
+    /**
+     * IP地址
+     */
+    private String ip;
 
     /**
      * 创建人
@@ -69,7 +88,6 @@ public class RoleMenu extends Model<RoleMenu> {
      */
     @TableField("lastUpdateTime")
     private Date lastUpdateTime;
-
 
     @Override
     protected Serializable pkVal() {

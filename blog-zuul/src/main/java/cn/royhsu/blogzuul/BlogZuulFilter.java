@@ -5,15 +5,15 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 
 /**
  * @author Ethan Liu
  * @since 2019/5/9 19:59
  */
-//@Component
+@Component
 public class BlogZuulFilter extends ZuulFilter {
 
     private static Logger log = LoggerFactory.getLogger(ZuulFilter.class);
@@ -38,19 +38,20 @@ public class BlogZuulFilter extends ZuulFilter {
         // filter需要执行的具体操作
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        System.out.println("Sessionid" + request.getSession().getId());
 
         String token = request.getParameter("token");
-        if (token == null) {
-            log.warn("there is no request token");
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
-            try {
-                ctx.getResponse().getWriter().write("there is no request token");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
+//        if (token == null) {
+//            log.warn("there is no request token");
+//            ctx.setSendZuulResponse(false);
+//            ctx.setResponseStatusCode(401);
+//            try {
+//                ctx.getResponse().getWriter().write("there is no request token");
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
 
         ctx.setResponseStatusCode(200); // 返回200正确响应
         return null;

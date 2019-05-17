@@ -1,4 +1,4 @@
-package cn.royhsu.blogsso.admin.entity;
+package cn.royhsu.common.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 系统日志
+ * 角色与机构对应关系
  * </p>
  *
  * @author Ethan Liu
@@ -23,8 +23,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_log")
-public class Log extends Model<Log> {
+@TableName("sys_role_dept")
+public class RoleDept extends Model<RoleDept> {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,35 +35,16 @@ public class Log extends Model<Log> {
     private Long id;
 
     /**
-     * 用户名
+     * 角色ID
      */
-    @TableField("userName")
-    private String userName;
+    @TableField("roleId")
+    private Long roleId;
 
     /**
-     * 用户操作
+     * 机构ID
      */
-    private String operation;
-
-    /**
-     * 请求方法
-     */
-    private String method;
-
-    /**
-     * 请求参数
-     */
-    private String params;
-
-    /**
-     * 执行时长(毫秒)
-     */
-    private Long time;
-
-    /**
-     * IP地址
-     */
-    private String ip;
+    @TableField("deptId")
+    private Long deptId;
 
     /**
      * 创建人
@@ -88,6 +69,7 @@ public class Log extends Model<Log> {
      */
     @TableField("lastUpdateTime")
     private Date lastUpdateTime;
+
 
     @Override
     protected Serializable pkVal() {
