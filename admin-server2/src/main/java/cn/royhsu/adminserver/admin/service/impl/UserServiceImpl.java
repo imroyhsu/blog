@@ -6,6 +6,8 @@ import cn.royhsu.adminserver.admin.mapper.UserMapper;
 import cn.royhsu.adminserver.admin.service.UserService;
 import cn.royhsu.common.admin.entity.Menu;
 import cn.royhsu.common.admin.entity.User;
+import cn.royhsu.core.http.HttpResult;
+import cn.royhsu.core.http.HttpStatus;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -35,22 +37,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private MenuMapper menuMapper;
 
     @Override
-    public IPage<User> findPage(IPage<User> page, Wrapper<User> queryWrapper) {
-        return userMapper.findPage(page, queryWrapper);
+    public HttpResult<IPage<User>> findPage(IPage<User> page, Wrapper<User> queryWrapper) {
+        return HttpResult.ok(userMapper.findPage(page, queryWrapper));
     }
 
     @Override
-    public User getById(Serializable id) {
-        return userMapper.findById(id);
+    public HttpResult<User> findById(Serializable id) {
+        if(userMapper.findById(id)!=null)
+            return HttpResult.ok(userMapper.findById(id));
+        else return HttpResult.error(HttpStatus.SC_NOT_FOUND,"没有这个用户");
     }
 
     @Override
-    public User getByName(String username) {
-        return userMapper.findByName(username);
+    public HttpResult<User> getByName(String username) {
+        return HttpResult.ok(userMapper.findByName(username));
     }
 
     @Override
-    public Set<String> findPermissionsByName(String username) {
+    public HttpResult<Set<String>> findPermissionsByName(String username) {
         Set<String> perms = new HashSet<>();
         List<Menu> menus = menuMapper.findByUsername(username);
         for (Menu menu : menus) {
@@ -58,6 +62,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 perms.add(menu.getPerms());
             }
         }
-        return perms;
+        return HttpResult.ok(perms);
     }
 }

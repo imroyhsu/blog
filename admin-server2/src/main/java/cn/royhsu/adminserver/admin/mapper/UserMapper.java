@@ -30,7 +30,6 @@ public interface UserMapper extends BaseMapper<User> {
      * 通过Id查询User,关联查询role和permission
      */
     @Select("select sys_user.id id,username,password,salt,email,mobile,status,deptId,sys_user.delFlag FROM sys_user where id = #{id} ")
-
     @Results({
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "username", column = "username"),
@@ -44,7 +43,7 @@ public interface UserMapper extends BaseMapper<User> {
             @Result(property = "roles", column = "id", javaType = List.class,
                     many = @Many(select = "cn.royhsu.adminserver.admin.mapper.RoleMapper.findByUserId"))
     })
-    User findById(@PathVariable(value = "userId") Serializable userId);
+    User findById(@PathVariable(value = "id") Serializable id);
 
     /**
      * 通过Id查询User,关联查询role和permission

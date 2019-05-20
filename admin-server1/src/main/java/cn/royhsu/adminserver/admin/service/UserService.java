@@ -1,6 +1,7 @@
 package cn.royhsu.adminserver.admin.service;
 
 import cn.royhsu.common.admin.entity.User;
+import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -17,13 +18,13 @@ import java.util.Set;
  * @since 2019-04-28
  */
 public interface UserService extends IService<User> {
-    IPage<User> findPage(IPage<User> page, Wrapper<User> queryWrapper);
+    HttpResult<IPage<User>> findPage(IPage<User> page, Wrapper<User> queryWrapper);
 
-    User getById(Serializable id);
+    HttpResult<User> findById(Serializable id);
 
-    User getByName(String name);
+    HttpResult<User> getByName(String name);
 
-    Set<String> findPermissionsByName(String username);
+    HttpResult<Set<String>> findPermissionsByName(String username);
 
 
 }

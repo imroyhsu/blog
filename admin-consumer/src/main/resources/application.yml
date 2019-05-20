@@ -70,13 +70,16 @@ spring:
         max-active: 600
         max-idle: 300
         max-wait: 1000ms
-
   devtools:
     livereload:
       enabled: true #是否支持livereload
       port: 35729
     restart:
       enabled: true #是否支持热部署
+
+#feign:
+#  hystrix:
+#    enabled: true
 
 management:
   endpoints:
@@ -94,6 +97,7 @@ eureka:
     health-check-url-path: /actuator/health
     # 自定义实例编号
     instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
   client:
     #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
     registryFetchIntervalSeconds: 5

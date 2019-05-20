@@ -3,6 +3,7 @@ package cn.royhsu.adminconsumer.admin.controller;
 
 import cn.royhsu.adminconsumer.admin.service.RoleService;
 import cn.royhsu.common.admin.entity.Role;
+import cn.royhsu.core.http.HttpResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,7 @@ public class RoleController {
     private RoleService roleService;
 
     @RequestMapping(value = "/getByUserId/{id}",method = RequestMethod.GET)
-    public List<Role> findByUserId(@PathVariable("id") Serializable userId){
+    public HttpResult<List<Role>> findByUserId(@PathVariable("id") Serializable userId){
         return roleService.findByUserId(userId);
     }
 

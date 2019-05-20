@@ -74,6 +74,19 @@ spring:
       port: 35729
     restart:
       enabled: true #是否支持热部署
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*mapper.xml
+  type-aliases-package: com.royhsu.admin.mapper
+  global-config:
+    db-config:
+      #主键自增
+      id-type: auto
+      #字段非空
+      field-strategy: not_empty
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: false
 
 management:
   endpoints:
@@ -91,6 +104,7 @@ eureka:
     health-check-url-path: /actuator/health
     # 自定义实例编号
     instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
   client:
     #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
     registryFetchIntervalSeconds: 5

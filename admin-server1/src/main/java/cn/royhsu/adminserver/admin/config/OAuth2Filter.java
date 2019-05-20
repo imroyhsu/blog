@@ -67,7 +67,8 @@ public class OAuth2Filter extends AuthenticatingFilter {
             HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
             String json = JSONObject.toJSONString(result);
             httpResponse.getWriter().print(json);
-        } catch (IOException e1) {
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
         return false;
     }

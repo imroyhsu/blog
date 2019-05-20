@@ -1,4 +1,0 @@
-GET http://localhost:8762/user/getById/{id}
-
-###
-

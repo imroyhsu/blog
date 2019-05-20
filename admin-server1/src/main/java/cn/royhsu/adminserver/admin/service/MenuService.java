@@ -1,6 +1,7 @@
 package cn.royhsu.adminserver.admin.service;
 
 import cn.royhsu.common.admin.entity.Menu;
+import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.Serializable;
@@ -15,9 +16,9 @@ import java.util.List;
  * @since 2019-04-28
  */
 public interface MenuService extends IService<Menu> {
-    List<Menu> findByRoleId(Serializable roleId);
+    HttpResult<List<Menu>> findByRoleId(Serializable roleId);
 
-    List<Menu> findByUserId(Serializable userId);
+    HttpResult<List<Menu>> findByUserId(Serializable userId);
 
-    List<Menu> findByUsername(String username);
+    HttpResult<List<Menu>> findByUsername(String username);
 }

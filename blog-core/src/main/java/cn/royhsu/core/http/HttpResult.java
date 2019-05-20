@@ -10,22 +10,22 @@ package cn.royhsu.core.http;
 public class HttpResult<T> {
     private int code = 200;
     private String msg;
-    private Object data;
+    private T data;
 
     public HttpResult() {
 
     }
 
-    public static HttpResult error() {
+    public static<T> HttpResult<T> error() {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
     }
 
-    public static HttpResult error(String msg) {
+    public static<T> HttpResult<T> error(String msg) {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, msg);
     }
 
-    public static HttpResult error(int code, String msg) {
-        HttpResult r = new HttpResult();
+    public static<T> HttpResult<T> error(int code, String msg) {
+        HttpResult<T> r = new HttpResult<>();
         r.setCode(code);
         r.setMsg(msg);
         return r;
@@ -37,8 +37,8 @@ public class HttpResult<T> {
         return r;
     }
 
-    public static HttpResult ok(Object data) {
-        HttpResult r = new HttpResult();
+    public static<T>  HttpResult<T> ok(T data) {
+        HttpResult<T> r = new HttpResult<>();
         r.setData(data);
         return r;
     }
@@ -59,15 +59,15 @@ public class HttpResult<T> {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    private void setMsg(String msg) {
         this.msg = msg;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

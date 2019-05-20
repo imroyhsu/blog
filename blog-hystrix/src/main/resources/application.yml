@@ -1,0 +1,18 @@
+server:
+  port: 8501
+spring:
+  application:
+    name: blog-hystrix
+eureka:
+  instance:
+    #表示eureka client发送心跳给server端的频率，默认为30秒
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    # 自定义实例编号
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

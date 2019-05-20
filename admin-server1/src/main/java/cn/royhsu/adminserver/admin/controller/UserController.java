@@ -30,30 +30,25 @@ public class UserController {
     private UserServiceImpl userService;
 
     @RequestMapping("/getById/{id}")
-    public User getById(@PathVariable(value = "id") int id) {
-        return userService.getById(id);
-    }
-
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello";
+    public HttpResult<User> getById(@PathVariable(value = "id") int id) {
+        return userService.findById(id);
     }
 
     @RequestMapping("/getByName/{name}")
-    public User getByName(@PathVariable(value = "name") String name) {
+    public HttpResult<User> getByName(@PathVariable(value = "name") String name) {
         return userService.getByName(name);
     }
 
     @RequestMapping("/getByPage")
-    public HttpResult getByPage() {
-        IPage<User> iPage = userService.page(new Page<>(1, 5), new QueryWrapper<User>().orderByAsc("id"));
+    public HttpResult<IPage<User>> getByPage() {
+        IPage<User> iPage = userService.findPage(new Page<>(1, 5), new QueryWrapper<User>().orderByAsc("id")).getData();
         System.out.println(iPage.getCurrent());
         System.out.println(iPage.getSize());
         return HttpResult.ok(iPage);
     }
 
     @RequestMapping("/getPermissionsByName/{name}")
-    public Set<String> findPermissionsByName(@PathVariable("name") String username){
+    public HttpResult<Set<String>> findPermissionsByName(@PathVariable("name") String username){
         return userService.findPermissionsByName(username);
     }
 }

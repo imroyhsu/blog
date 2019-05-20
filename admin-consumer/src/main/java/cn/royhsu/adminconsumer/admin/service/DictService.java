@@ -1,5 +1,6 @@
 package cn.royhsu.adminconsumer.admin.service;
 
+import cn.royhsu.adminconsumer.admin.hystrix.HystrixDictService;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author Ethan Liu
  * @since 2019-04-28
  */
-@FeignClient("admin-server")
+@FeignClient(value = "admin-server",fallback = HystrixDictService.class)
 public interface DictService {
 
 }

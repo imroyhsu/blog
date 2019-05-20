@@ -3,6 +3,7 @@ package cn.royhsu.adminserver.admin.service.impl;
 import cn.royhsu.adminserver.admin.mapper.RoleMapper;
 import cn.royhsu.adminserver.admin.service.RoleService;
 import cn.royhsu.common.admin.entity.Role;
+import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     private RoleMapper roleMapper;
 
     @Override
-    public List<Role> findByUserId(Serializable userId) {
-        return roleMapper.findByUserId(userId);
+    public HttpResult<List<Role>> findByUserId(Serializable userId) {
+        return HttpResult.ok(roleMapper.findByUserId(userId));
     }
 }

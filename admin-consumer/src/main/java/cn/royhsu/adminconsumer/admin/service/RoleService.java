@@ -1,6 +1,8 @@
 package cn.royhsu.adminconsumer.admin.service;
 
+import cn.royhsu.adminconsumer.admin.hystrix.HystrixRoleService;
 import cn.royhsu.common.admin.entity.Role;
+import cn.royhsu.core.http.HttpResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,8 @@ import java.util.List;
  * @author Ethan Liu
  * @since 2019-04-28
  */
-@FeignClient("admin-server")
+@FeignClient(value = "admin-server",fallback = HystrixRoleService.class)
 public interface RoleService {
     @RequestMapping(value = "/role/getByUserId/{id}",method = RequestMethod.GET)
-    List<Role> findByUserId(@PathVariable("id") Serializable userId);
+    HttpResult<List<Role>> findByUserId(@PathVariable("id") Serializable userId);
 }

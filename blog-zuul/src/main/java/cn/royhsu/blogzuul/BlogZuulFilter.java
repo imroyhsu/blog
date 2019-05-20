@@ -1,5 +1,6 @@
 package cn.royhsu.blogzuul;
 
+
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -35,12 +36,12 @@ public class BlogZuulFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        // filter需要执行的具体操作
         RequestContext ctx = RequestContext.getCurrentContext();
+        // filter需要执行的具体操作
         HttpServletRequest request = ctx.getRequest();
         System.out.println("Sessionid" + request.getSession().getId());
 
-        String token = request.getParameter("token");
+
 //        if (token == null) {
 //            log.warn("there is no request token");
 //            ctx.setSendZuulResponse(false);

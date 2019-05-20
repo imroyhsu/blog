@@ -3,6 +3,7 @@ package cn.royhsu.adminserver.admin.service.impl;
 import cn.royhsu.adminserver.admin.mapper.MenuMapper;
 import cn.royhsu.adminserver.admin.service.MenuService;
 import cn.royhsu.common.admin.entity.Menu;
+import cn.royhsu.core.http.HttpResult;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -24,17 +25,17 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private MenuMapper menuMapper;
 
     @Override
-    public List<Menu> findByRoleId(Serializable roleId) {
-        return menuMapper.findByRoleId(roleId);
+    public HttpResult<List<Menu>> findByRoleId(Serializable roleId) {
+        return HttpResult.ok(menuMapper.findByRoleId(roleId));
     }
 
     @Override
-    public List<Menu> findByUserId(Serializable userId) {
-        return menuMapper.findByUserId(userId);
+    public HttpResult<List<Menu>> findByUserId(Serializable userId) {
+        return HttpResult.ok(menuMapper.findByUserId(userId));
     }
 
     @Override
-    public List<Menu> findByUsername(String username) {
-        return menuMapper.findByUsername(username);
+    public HttpResult<List<Menu>> findByUsername(String username) {
+        return HttpResult.ok(menuMapper.findByUsername(username));
     }
 }

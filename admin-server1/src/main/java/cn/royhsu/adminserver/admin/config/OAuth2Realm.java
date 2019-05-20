@@ -43,7 +43,7 @@ public class OAuth2Realm extends AuthorizingRealm {
         System.out.println("开始权限配置");
         User user = (User) principals.getPrimaryPrincipal();
         // 用户权限列表，根据用户拥有的权限标识与如 @permission标注的接口对比，决定是否可以调用接口
-        Set<String> permSet = userService.findPermissionsByName(user.getUsername());
+        Set<String> permSet = userService.findPermissionsByName(user.getUsername()).getData();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         authorizationInfo.setStringPermissions(permSet);
         return authorizationInfo;
@@ -69,12 +69,10 @@ public class OAuth2Realm extends AuthorizingRealm {
             throw new IncorrectCredentialsException("token失效，请重新登录");
         }
         // 查询用户信息，并验证是否被锁定
-        User user = userService.getById(userToken.getUserId());
+        User user = userService.findById(userToken.getUserId()).getData();
         if (user.getStatus() == 0) {
             throw new LockedAccountException("账号已被锁定，请联系管理员");
         }
-
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, aToken, getName());
-        return authenticationInfo;
+        return new SimpleAuthenticationInfo(user, aToken, getName());
     }
 }

@@ -24,9 +24,10 @@
         <module>../article-server</module>
         <module>../blog-zuul</module>
         <module>../blog-eureka</module>
-        <module>../blog-admin</module>
+        <module>../global-actuator</module>
         <module>../blog-common</module>
         <module>../blog-core</module>
+        <module>../blog-hystrix</module>
     </modules>
 
 
@@ -38,7 +39,7 @@
         <!--spring boot & cloud-->
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-
+        <spring-security-web.version>5.1.5.RELEASE</spring-security-web.version>
         <!-- netflix -->
         <netflix.version>2.1.1.RELEASE</netflix.version>
         <!-- Shiro -->
@@ -116,6 +117,12 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring-security-web.version}</version>
             </dependency>
 
             <!-- spring-cloud-netflix-dependencies -->
