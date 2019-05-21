@@ -48,6 +48,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         else return HttpResult.error(HttpStatus.SC_NOT_FOUND,"没有这个用户");
     }
 
+    public User OriginFindById(Serializable id){
+        return userMapper.findById(id);
+    }
+
     @Override
     public HttpResult<User> getByName(String username) {
         return HttpResult.ok(userMapper.findByName(username));

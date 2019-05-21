@@ -22,6 +22,7 @@ import java.io.IOException;
  * @since 2019/5/3 22:09
  */
 public class OAuth2Filter extends AuthenticatingFilter {
+    //executeLogin(request, response)方法需要一个实现了AuthenticationToken接口的token，这里做一下封装
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
         // 获取请求token
@@ -37,7 +38,6 @@ public class OAuth2Filter extends AuthenticatingFilter {
         return false;
     }
 
-
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -49,7 +49,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
         String token = getRequestToken((HttpServletRequest) request);
         if (StringUtils.isBlank(token)) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, "invalid token");
+            HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, "没有token，请重新登录");
             String json = JSONObject.toJSONString(result);
             httpResponse.getWriter().print(json);
             return false;
@@ -72,7 +72,6 @@ public class OAuth2Filter extends AuthenticatingFilter {
         }
         return false;
     }
-
 
     /**
      * 获取请求的token

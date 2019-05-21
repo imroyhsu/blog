@@ -74,6 +74,9 @@ spring:
       port: 35729
     restart:
       enabled: true #是否支持热部署
+  aop:
+    proxy-target-class: true
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/*mapper.xml
   type-aliases-package: com.royhsu.admin.mapper
@@ -87,6 +90,10 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+
+
+
 
 management:
   endpoints:

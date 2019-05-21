@@ -30,6 +30,7 @@ public class MenuController {
 
 
     @RequestMapping(value = "/getByUserId/{id}", method = RequestMethod.GET)
+
     public HttpResult<List<Menu>> getByUserId(@PathVariable(value = "id") Serializable userId) {
         return menuService.findByUserId(userId);
     }

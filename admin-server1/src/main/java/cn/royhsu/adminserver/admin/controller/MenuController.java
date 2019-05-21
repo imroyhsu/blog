@@ -4,6 +4,7 @@ package cn.royhsu.adminserver.admin.controller;
 import cn.royhsu.adminserver.admin.service.impl.MenuServiceImpl;
 import cn.royhsu.common.admin.entity.Menu;
 import cn.royhsu.core.http.HttpResult;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,7 @@ public class MenuController {
     private MenuServiceImpl menuService;
 
     @RequestMapping("/getByUserId/{id}")
+    @RequiresPermissions("sys:menu:view")
     public HttpResult<List<Menu>> getByUserId(@PathVariable(value = "id") Serializable userId) {
         return menuService.findByUserId(userId);
     }

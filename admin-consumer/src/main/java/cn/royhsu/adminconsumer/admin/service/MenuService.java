@@ -21,10 +21,10 @@ import java.util.List;
  */
 @FeignClient(value = "admin-server",fallback = HystrixMenuService.class)
 public interface MenuService  {
-    @RequestMapping(value = "/menu/getByUserId/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/menu/getByRoleId/{id}", method = RequestMethod.GET)
     HttpResult<List<Menu>> findByRoleId(@PathVariable(value = "id") Serializable roleId);
 
-    @RequestMapping(value = "/menu/getByRoleId/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/menu/getByUserId/{id}",method = RequestMethod.GET)
     HttpResult<List<Menu>> findByUserId(@PathVariable(value = "id") Serializable userId);
 
     @RequestMapping(value = "/menu/getByUsername/{username}",method = RequestMethod.GET)

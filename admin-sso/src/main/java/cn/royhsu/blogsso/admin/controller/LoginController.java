@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
@@ -43,6 +44,8 @@ public class LoginController {
     private Producer producer;
     @Resource
     private HttpServletRequest request;
+    @Resource
+    private HttpServletResponse response;
 
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
@@ -100,6 +103,7 @@ public class LoginController {
         }
         //密码正确且未被锁定，则生成token或更新已有token
         UserToken data = userTokenService.createToken(user.getId(),key);
+        response.addCookie(new Cookie("token", data.getToken()));
         return HttpResult.ok(data);
     }
 
